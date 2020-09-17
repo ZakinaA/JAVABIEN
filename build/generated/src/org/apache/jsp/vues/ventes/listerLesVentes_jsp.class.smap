@@ -1,0 +1,14 @@
+SMAP
+listerLesVentes_jsp.java
+JSP
+*S JSP
+*F
++ 0 listerLesVentes.jsp
+vues/ventes/listerLesVentes.jsp
+*L
+5,15:46
+20,2:62
+21,19:64
+40,39:84
+78,7:123
+*E
