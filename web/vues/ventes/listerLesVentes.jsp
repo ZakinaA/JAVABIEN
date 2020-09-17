@@ -27,7 +27,7 @@
                     <th>date début</th>
                     <th>catégorie</th>  
                     <th>Ville</th>
-                    <th>NbBoxes</th>
+                    <th>NbBoxes(dev)</th>
                     <th></th>
                     <th></th>
                     <th></th>
