@@ -74,6 +74,10 @@
                         out.println("Lister les Courriels interessés");
                         out.println("</td>");
                         
+                        out.println("<td><a href ='../ServletVentes/listerLesChevaux?idVente="+ uneVente.getId()+ "'>");
+                        out.println("Lister les Chevaux en vente");
+                        out.println("</td>");
+                        
                                
                     }
                     %>

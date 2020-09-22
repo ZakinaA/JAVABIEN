@@ -12,10 +12,13 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modele.CategVente;
+import modele.Cheval;
 import modele.Client;
 import modele.Courriel;
 import modele.Lieu;
+import modele.Lot;
 import modele.Pays;
+import modele.TypeCheval;
 import modele.Vente;
 
 /**
@@ -41,7 +44,7 @@ public class VenteDAO {
         try
         {
             //preparation de la requete     
-            requete=connection.prepareStatement("SELECT * from vente, categvente, lieu where vente.codeCategVente=categVente.code AND lieu.id = vente.id_lieu");          
+            requete=connection.prepareStatement("SELECT * from vente, categvente, lieu where categvente.code = vente.codeCategVente AND vente.id_lieu = lieu.id");          
             //executer la requete
             rs=requete.executeQuery();
             
@@ -53,7 +56,7 @@ public class VenteDAO {
                 uneVente.setDateDebutVente(rs.getString("dateDebut"));
                 
                 
-                CategVente uneCateg = new CategVente();
+                CategVente uneCateg = new CategVente(); 
                 uneCateg.setCode(rs.getString("code"));  // on aurait aussi pu prendre CodeCateg
                 uneCateg.setLibelle(rs.getString("libelle"));
                 
@@ -155,6 +158,42 @@ public class VenteDAO {
             e.printStackTrace();
         }
         return lesCourriels ;    
+    }
+    
+    
+    public static ArrayList<Cheval>  getLesChevaux(Connection connection, String idVente){      
+        ArrayList<Cheval> lesChevaux = new  ArrayList<Cheval>();
+        try
+        {
+            //preparation de la requete     
+            requete=connection.prepareStatement("SELECT cheval.id, cheval.nom, cheval.vendeur, typecheval.libelle FROM typecheval, cheval, lot, vente WHERE typecheval.id = cheval.id_typeChev AND cheval.id = lot.idCheval AND lot.idVente = vente.id AND vente.id = ?");          
+            //executer la requete
+            requete.setString(1, idVente);
+            
+            System.out.println("requete  " + requete);
+            rs=requete.executeQuery();
+            
+            //On hydrate l'objet métier Client avec les résultats de la requête
+            while ( rs.next() ) {  
+                Cheval unCheval = new Cheval();
+                unCheval.setId(rs.getInt("id"));
+                unCheval.setNom(rs.getString("nom"));
+                unCheval.setVendeur(rs.getString("vendeur"));
+                
+                TypeCheval unTypeChev = new TypeCheval();
+                unTypeChev.setId(rs.getInt("id"));
+                unTypeChev.setLibelle(rs.getString("libelle"));
+                
+                unCheval.setUnTypeChev(unTypeChev);
+                
+                lesChevaux.add(unCheval);
+            }
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return lesChevaux ;    
     }
     
     
