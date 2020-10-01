@@ -152,13 +152,17 @@ public class VenteDAO {
                 
                 lesCourriels.add(unCourriel);
             }
+            
         }   
+
         catch (SQLException e) 
         {
             e.printStackTrace();
-        }
+        } 
         return lesCourriels ;    
     }
+    
+    
     
     
     public static ArrayList<Cheval>  getLesChevaux(Connection connection, String idVente){      
@@ -194,6 +198,7 @@ public class VenteDAO {
             e.printStackTrace();
         }
         return lesChevaux ;    
+        
     }
     
     

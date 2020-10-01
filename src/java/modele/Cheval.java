@@ -17,21 +17,29 @@ public class Cheval {
     private String sexe;
     private int prixDepart;
     private String vendeur;
+    private String proprietaire;
     private String sire;
+    private String mere;
+    private String pere;
     private TypeCheval unTypeChev;
     private ArrayList<Vente> lesVentes ;
 
     public Cheval() {
     }
 
-    public Cheval(int id, String nom, String sexe, int prixDepart, String vendeur, String sire) {
+    public Cheval(int id, String nom, String sexe, int prixDepart, String vendeur, String proprietaire, String sire, String mere, String pere) {
         this.id = id;
         this.nom = nom;
         this.sexe = sexe;
         this.prixDepart = prixDepart;
         this.vendeur = vendeur;
+        this.proprietaire = proprietaire;
         this.sire = sire;
+        this.mere = mere;
+        this.pere = pere;
     }
+
+
 
     public int getId() {
         return id;
@@ -73,6 +81,14 @@ public class Cheval {
         this.vendeur = vendeur;
     }
 
+    public String getProprietaire() {
+        return proprietaire;
+    }
+
+    public void setProprietaire(String proprietaire) {
+        this.proprietaire = proprietaire;
+    }  
+
     public String getSire() {
         return sire;
     }
@@ -80,6 +96,24 @@ public class Cheval {
     public void setSire(String sire) {
         this.sire = sire;
     }
+
+    public String getMere() {
+        return mere;
+    }
+
+    public void setMere(String mere) {
+        this.mere = mere;
+    }
+
+    public String getPere() {
+        return pere;
+    }
+
+    public void setPere(String pere) {
+        this.pere = pere;
+    }
+    
+    
 
     public TypeCheval getUnTypeChev() {
         return unTypeChev;
@@ -102,9 +136,6 @@ public class Cheval {
             lesVentes = new ArrayList<Vente>();
         }
         lesVentes.add(uneVente);
-    }
-    
-    
-    
-    
+    } 
+
 }

@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/web/vues/ventes/listerLesChevaux.jsp</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/web/index.html</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/src/java/modele/Courriel.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/src/java/tests/LieuTest.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/src/java/tests/CourrielTest.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/src/java/tests/VenteTest.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/EquidaWeb18/src/java/modele/Vente.java</file>
         </group>
     </open-files>
 </project-private>

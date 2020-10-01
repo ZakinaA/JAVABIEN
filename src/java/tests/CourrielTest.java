@@ -29,9 +29,10 @@ public class CourrielTest {
     {
       //System.out.println("donnée à l'indice " + i + " = " + maListe.get(i));
       System.out.println(unePJ.getId()+" "+unePJ.getCheminAcces());
-    }              
+    }            
     
     
+    //System.out.println ("Courriel comptabilisé : " +maListe.size());
     
     }
 }

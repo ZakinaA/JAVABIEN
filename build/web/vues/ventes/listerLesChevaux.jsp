@@ -11,7 +11,7 @@
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="stylesheet" href="../../../src/css/styles.css"/>
         <title>LISTE DES CHEVAUX</title>
     </head>
     <body>
@@ -26,6 +26,7 @@
                     <th>Nom</th>
                     <th>Vendeur</th>
                     <th>Race</th>
+                    
  
             <br>
             <br>
@@ -53,6 +54,11 @@
                         out.println("<td>");
                         out.println(unCheval.getUnTypeChev().getLibelle());
                         out.println("</td>");
+                        
+                        out.println("<td><a href ='../ServletCheval/listerInfoCheval?idCheval="+ unCheval.getId()+ "'>");
+                        out.println("Plus d'information");
+                        out.println("</td>");
+                        
       
                     }
                     %>
