@@ -18,7 +18,7 @@
         <title>Ajouter un cheval</title>
     </head>
     <body>
-        <h1>NOUVEAU CHEVAL</h1>
+        <h1>AJOUTER CHEVAL</h1>
         
          <%
                 //Client client=(Client)request.getAttribute("client");
@@ -31,8 +31,8 @@
                 </br>
                 
                 <label for="sexe">Sexe : </label>
-                <input type="radio" name="F" value="F" id="F" checked>    
-                <input type="radio" name="M" value="M" id="M"> 
+                <input type="radio" name="Sexe" value="F" />F
+                <input type="radio" name="Sexe" value="M" />M
                  </br>
                 
                 <label for="prixDepart">Prix de départ : </label>
