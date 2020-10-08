@@ -19,63 +19,27 @@
          <%
        Cheval unCheval = (Cheval)request.getAttribute("pUnCheval");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="5">  
+        <table  class="table table-bordered table-striped table-condensed"  border="0">  
             <thead>
-                <tr>             
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>Sexe</th>
-                    <th>Valeur</th>
-                    <th>Vendeur</th>
-                    <th>SIRE</th>
-                    <th>Race</th>
-                    <th>Mére</th>
-                    <th>Père</th>
-            <br>
-            <br>
+                <tr>                 
+                    <td><h2><%out.println(unCheval.getNom());%></h2></tr>
+                    <td><img src="../vues/image/cheval.jpg" alt=""/></tr>
+                    <td><strong><u>Id:</u></strong><%out.println(unCheval.getId());%></tr>                  
+                    <td><strong><u>Sexe:</u></strong><%out.println(unCheval.getSexe());%></tr>
+                    <td><strong><u>Valeur:</u></strong><%out.println(unCheval.getPrixDepart());%></tr>
+                    <td><strong><u>Vendeur:</u></strong><%out.println(unCheval.getVendeur());%></tr>
+                    <td><strong><u>SIRE:</u></strong><%out.println(unCheval.getSire());%></tr>
+                    <td><strong><u>Race:</u></strong><%out.println(unCheval.getUnTypeChev().getLibelle());%></tr>
+                    <td><strong><u>Mére:</u></strong><%out.println(unCheval.getMere());%></tr>
+                    <td><strong><u>Père:</u></strong><%out.println(unCheval.getPere());%></tr>
+           
                 </tr>
-            </thead>
-            
+            </thead>           
             <tbody>
-                <tr>  <%
-                        out.println("<td>");
-                        out.println(unCheval.getId());
-                        out.println("</td>");
-
-                       out.println("<td>");
-                       out.println(unCheval.getNom());
-                       out.println("</td>");
-
-                        out.println("<td>");
-                        out.println(unCheval.getSexe());
-                        out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unCheval.getPrixDepart());
-                        out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unCheval.getVendeur());
-                        out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unCheval.getSire());
-                        out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unCheval.getUnTypeChev().getLibelle());
-                        out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unCheval.getMere());
-                        out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unCheval.getPere());
-                        out.println("</td>");
-                      %>
-
+            
+            
             </tbody>
         </table>
     </body>
 </html>
+

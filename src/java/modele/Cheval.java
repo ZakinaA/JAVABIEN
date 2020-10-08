@@ -21,13 +21,14 @@ public class Cheval {
     private String sire;
     private String mere;
     private String pere;
+    private String chemin_image;
     private TypeCheval unTypeChev;
     private ArrayList<Vente> lesVentes ;
 
     public Cheval() {
     }
 
-    public Cheval(int id, String nom, String sexe, int prixDepart, String vendeur, String proprietaire, String sire, String mere, String pere) {
+    public Cheval(int id, String nom, String sexe, int prixDepart, String vendeur, String proprietaire, String sire, String mere, String pere, String image) {
         this.id = id;
         this.nom = nom;
         this.sexe = sexe;
@@ -37,6 +38,7 @@ public class Cheval {
         this.sire = sire;
         this.mere = mere;
         this.pere = pere;
+        this.chemin_image = image;
     }
 
 
@@ -68,6 +70,15 @@ public class Cheval {
     public int getPrixDepart() {
         return prixDepart;
     }
+
+    public String getChemin_image() {
+        return chemin_image;
+    }
+
+    public void setChemin_image(String chemin_image) {
+        this.chemin_image = chemin_image;
+    }    
+    
 
     public void setPrixDepart(int prixDepart) {
         this.prixDepart = prixDepart;

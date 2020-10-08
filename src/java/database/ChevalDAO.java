@@ -46,6 +46,7 @@ public class ChevalDAO {
                 unCheval.setSire(rs.getString("SIRE"));
                 unCheval.setMere(rs.getString("id_mere"));
                 unCheval.setPere(rs.getString("id_pere"));
+                unCheval.setChemin_image(rs.getString("chemin_image"));
                 
                 TypeCheval unTypeChev = new TypeCheval();
                 unTypeChev.setLibelle(rs.getString("libelle"));
