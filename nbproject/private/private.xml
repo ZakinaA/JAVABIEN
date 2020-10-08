@@ -6,7 +6,9 @@
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN-master/JAVABIEN/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN-master/JAVABIEN/src/java/modele/Cheval.java</file>
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN-master/JAVABIEN/src/java/database/ChevalDAO.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN-master/JAVABIEN/src/java/database/VenteDAO.java</file>
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN-master/JAVABIEN/web/vues/cheval/listerInfoCheval.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN-master/JAVABIEN/src/java/servlets/ServletVentes.java</file>
         </group>
     </open-files>
 </project-private>
