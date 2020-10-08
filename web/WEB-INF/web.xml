@@ -15,7 +15,7 @@
     <context-param>
         <param-name>motdepassejdbc</param-name>
         <param-value>mpJavabien</param-value>
-        <param-value/>
+
     </context-param>
     <!--  écouteurs -->
     <listener>
