@@ -6,14 +6,15 @@
     </context-param>
     <context-param>
         <param-name>urlconnexionjdbc</param-name>
-        <param-value>jdbc:mysql://localhost:3306/equida20</param-value>
+        <param-value>jdbc:mysql://172.20.0.241:3306/JAVABIEN</param-value>
     </context-param>
     <context-param>
         <param-name>utilisateurjdbc</param-name>
-        <param-value>root</param-value>
+        <param-value>ADM_JAVABIEN</param-value>
     </context-param>
     <context-param>
         <param-name>motdepassejdbc</param-name>
+        <param-value>mpJavabien</param-value>
         <param-value/>
     </context-param>
     <!--  écouteurs -->
