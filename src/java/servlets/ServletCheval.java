@@ -88,7 +88,7 @@ public class ServletCheval extends HttpServlet {
         
         // Récup et affichage par date décroissante de toutes les ventes   
           
-        if(url.equals("/EquidaWeb20/ServletCheval/listerInfoCheval"))
+        if(url.equals("/JAVABIEN/ServletCheval/listerInfoCheval"))
         {  
             String idCheval = (String) request.getParameter("idCheval");
             Cheval unCheval = ChevalDAO.getLeCheval(connection, idCheval);
@@ -97,7 +97,7 @@ public class ServletCheval extends HttpServlet {
         }
         
         
-        if(url.equals("/EquidaWeb20/ServletCheval/chevalAjouter"))
+        if(url.equals("/JAVABIEN/ServletCheval/chevalAjouter"))
         {  
             ArrayList<TypeCheval> lesTypesChev = TypeChevalDAO.getLesTypesChev(connection);
             System.out.println ("lestypes " + lesTypesChev.size());

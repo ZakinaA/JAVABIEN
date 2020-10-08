@@ -87,7 +87,7 @@ public class ServletVentes extends HttpServlet {
         
         // Récup et affichage par date décroissante de toutes les ventes   
           
-        if(url.equals("/EquidaWeb20/ServletVentes/listerLesVentes"))
+        if(url.equals("/JAVABIEN/ServletVentes/listerLesVentes"))
         {  
             ArrayList<Vente> lesVentes = VenteDAO.getLesVentes(connection);
             request.setAttribute("pLesVentes", lesVentes);
@@ -95,7 +95,7 @@ public class ServletVentes extends HttpServlet {
         }
         
         // Récup et affichage des clients interessés par une certaine catégorie de ventes
-        if(url.equals("/EquidaWeb20/ServletVentes/listerLesClients"))
+        if(url.equals("/JAVABIEN/ServletVentes/listerLesClients"))
         {  
            System.out.println("DANS LISTER LES CLIENTS");
             String codeCat = (String)request.getParameter("codeCat");
@@ -108,7 +108,7 @@ public class ServletVentes extends HttpServlet {
         
                 // Récup et affichage par date décroissante de toutes les ventes   
           
-        if(url.equals("/EquidaWeb20/ServletVentes/listerLesCourriels"))
+        if(url.equals("/JAVABIEN/ServletVentes/listerLesCourriels"))
         {  
             String idVente = (String) request.getParameter("idVente");
             ArrayList<Courriel> lesCourriels = VenteDAO.getLesCourriels(connection, idVente);
@@ -116,7 +116,7 @@ public class ServletVentes extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesCourriels.jsp").forward(request, response);
         }
         
-        if(url.equals("/EquidaWeb20/ServletVentes/listerLesChevaux"))
+        if(url.equals("/JAVABIEN/ServletVentes/listerLesChevaux"))
         {  
             String idVente = (String) request.getParameter("idVente");
             ArrayList<Cheval> lesChevaux = VenteDAO.getLesChevaux(connection, idVente);

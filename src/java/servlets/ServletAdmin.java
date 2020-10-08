@@ -87,7 +87,7 @@ public class ServletAdmin extends HttpServlet {
         
        String url = request.getRequestURI();
        
-       if(url.equals("/EquidaWeb20/ServletAdmin/categorieAjouter"))
+       if(url.equals("/JAVABIEN/ServletAdmin/categorieAjouter"))
         {                   
            // ArrayList<Pays> lesPays = PaysDAO.getLesPays(connection);
             //request.setAttribute("pLesPays", lesPays);
