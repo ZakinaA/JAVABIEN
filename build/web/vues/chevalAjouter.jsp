@@ -40,13 +40,9 @@
                  </br>
                                
                 
-                <label for="vendeur">Vendeur : </label>
-                <input id="vendeur"  type="text"  name="vendeur" size="30" maxlength="50">
-                </br>
                 
-                <label for="proprietaire">Propriétaire : </label>
-                <input id="proprietaire"  type="text"  name="proprietaire" size="30" maxlength="50">
-                </br>
+                
+            
                 
                 <label for="SIRE">SIRE : </label>
                 <input id="SIRE"  type="text"  name="SIRE" size="30" maxlength="50">

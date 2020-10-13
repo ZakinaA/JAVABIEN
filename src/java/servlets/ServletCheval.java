@@ -34,6 +34,7 @@ public class ServletCheval extends HttpServlet {
     
      Connection connection ;
       
+      
         
     @Override
     public void init()
@@ -96,7 +97,6 @@ public class ServletCheval extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/cheval/listerInfoCheval.jsp").forward(request, response);
         }
         
-        
         if(url.equals("/JAVABIEN/ServletCheval/chevalAjouter"))
         {  
             ArrayList<TypeCheval> lesTypesChev = TypeChevalDAO.getLesTypesChev(connection);
@@ -105,9 +105,12 @@ public class ServletCheval extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp").forward(request, response);
         }
         
+       
+        
         
         
     }
+    
 
     /**
      * Handles the HTTP <code>POST</code> method.

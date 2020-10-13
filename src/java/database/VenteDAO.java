@@ -170,7 +170,7 @@ public class VenteDAO {
         try
         {
             //preparation de la requete     
-            requete=connection.prepareStatement("SELECT cheval.id, cheval.nom, cheval.vendeur, typecheval.libelle FROM typecheval, cheval, lot, vente WHERE typecheval.id = cheval.id_typeChev AND cheval.id = lot.idCheval AND lot.idVente = vente.id AND vente.id = ?");          
+            requete=connection.prepareStatement("SELECT cheval.id, cheval.nom, typecheval.libelle FROM typecheval, cheval, lot, vente WHERE typecheval.id = cheval.id_typeChev AND cheval.id = lot.idCheval AND lot.idVente = vente.id AND vente.id = ?");          
             //executer la requete
             requete.setString(1, idVente);
             
@@ -182,7 +182,7 @@ public class VenteDAO {
                 Cheval unCheval = new Cheval();
                 unCheval.setId(rs.getInt("id"));
                 unCheval.setNom(rs.getString("nom"));
-                unCheval.setVendeur(rs.getString("vendeur"));
+                
                 
                 TypeCheval unTypeChev = new TypeCheval();
                 unTypeChev.setId(rs.getInt("id"));

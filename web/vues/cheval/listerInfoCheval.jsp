@@ -23,24 +23,29 @@
        Cheval unCheval = (Cheval)request.getAttribute("pUnCheval");
         %>
         <table  class="table table-bordered table-striped table-condensed"  border="0">  
-            <thead>
+            
                 <tr>           
                     <td><img><%out.println(unCheval.getNom());%></h2></tr>
                     <!--<td><img src="../vues/image/cheval.jpg"/></tr>-->
-                    
-                    <td><img src="<%out.println(unCheval.getChemin_image());%>"></tr>
+            
+                    <td><img src="<%out.println(unCheval.getChemin_image());%>" height="200" width="250"></tr>
                             
-                    <td><strong><u>Id:</u></strong><%out.println(unCheval.getId());%></tr>                  
-                    <td><strong><u>Sexe:</u></strong><%out.println(unCheval.getSexe());%></tr>
-                    <td><strong><u>Valeur:</u></strong><%out.println(unCheval.getPrixDepart());%></tr>
-                    <td><strong><u>Vendeur:</u></strong><%out.println(unCheval.getVendeur());%></tr>
-                    <td><strong><u>SIRE:</u></strong><%out.println(unCheval.getSire());%></tr>
-                    <td><strong><u>Race:</u></strong><%out.println(unCheval.getUnTypeChev().getLibelle());%></tr>
-                    <td><strong><u>Mére:</u></strong><%out.println(unCheval.getMere());%></tr>
-                    <td><strong><u>Père:</u></strong><%out.println(unCheval.getPere());%></tr>
+                    <td><strong><u>Id:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getId());%></tr>                  
+                    <td><strong><u>Sexe:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getSexe());%></tr>
+                   
+                    <td><strong><u>Valeur:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getPrixDepart());%>€</tr>                       
+        
+  
+                    <td><strong><u>SIRE:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getSire());%></tr>
+                    <td><strong><u>Race:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getUnTypeChev().getLibelle());%></tr>
+                    
+                        <td><strong><u>Mère:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getMere());%></tr>
+                    
+                   <!-- <td><strong><u>Mère:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getMere());%></tr>-->
+                    <td><strong><u>Père:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getPere());%></tr>
            
                 </tr>
-            </thead>           
+                       
             <tbody>
             
             

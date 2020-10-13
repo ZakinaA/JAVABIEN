@@ -119,7 +119,7 @@ public class ServletVentes extends HttpServlet {
         if(url.equals("/JAVABIEN/ServletVentes/listerLesChevaux"))
         {  
             String idVente = (String) request.getParameter("idVente");
-            ArrayList<Cheval> lesChevaux = VenteDAO.getLesChevaux(connection, idVente);
+            ArrayList<Cheval> lesChevaux = VenteDAO.getLesChevaux(connection,idVente);
             System.out.println("nb chevaux " + lesChevaux.size() );
             request.setAttribute("pLesChevaux", lesChevaux);
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesChevaux.jsp").forward(request, response);

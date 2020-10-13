@@ -41,8 +41,8 @@ public class ChevalDAO {
                 unCheval.setNom(rs.getString("nom"));
                 unCheval.setSexe(rs.getString("sexe"));
                 unCheval.setPrixDepart(rs.getInt("prixDepart"));
-                unCheval.setVendeur(rs.getString("vendeur"));
-                unCheval.setProprietaire(rs.getString("proprietaire"));
+               
+              
                 unCheval.setSire(rs.getString("SIRE"));
                 unCheval.setMere(rs.getString("id_mere"));
                 unCheval.setPere(rs.getString("id_pere"));
@@ -73,12 +73,11 @@ public class ChevalDAO {
             // id (clé primaire de la table client) est en auto_increment,donc on ne renseigne pas cette valeur
             // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
             // supprimer ce paramètre en cas de requête sans auto_increment.
-            requete=connection.prepareStatement("INSERT INTO CHEVAL (nom, sexe, prixDepart, vendeur, proprietaire, SIRE, id_typeChev)\n" + "VALUES (?,?,?,?,?,?,?)");
+            requete=connection.prepareStatement("INSERT INTO CHEVAL (nom, sexe, prixDepart, SIRE, id_typeChev)\n" + "VALUES (?,?,?,?,?)");
             requete.setString(1, unCheval.getNom());
             requete.setString(2, unCheval.getSexe());
             requete.setInt(3, unCheval.getPrixDepart());
-            requete.setString(4, unCheval.getVendeur());
-            requete.setString(5, unCheval.getProprietaire());
+            
             requete.setString(6, unCheval.getSire());
             requete.setInt(7, unCheval.getUnTypeChev().getId());
 
