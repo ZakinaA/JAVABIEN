@@ -1,7 +1,6 @@
 <%-- 
     Document   : listerLesMails
-    Created on : 10 sept. 2020, 14:44:47
-    Author     : sio2
+    Author     : Javabien
 --%>
 
 <%@page import="modele.Courriel"%>
@@ -14,11 +13,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
         
-        <title>LISTE LES COURRIELS POUR UNE CATEGORIE DE VENTE</title>
+        <title>Liste des courriels</title>
     </head>
     <body>
          <div class="container">
-        <u><h1>LISTE DES COURRIELS POUR UNE CATEGORIE DE VENTE</h1></u>
+             <%@ include file="../menu/menu.html"%>
+        <u><h1>Liste des courriels pour une catégorie de vente</h1></u>
          <%
         ArrayList<Courriel> lesCourriels = (ArrayList)request.getAttribute("pLesCourriels");
         %>

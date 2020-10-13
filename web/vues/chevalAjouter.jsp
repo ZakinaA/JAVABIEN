@@ -1,7 +1,6 @@
 <%-- 
-    Document   : ClientAjouter
-    Created on : 22/06, 16:35:27
-    Author     : Zakina
+    Document   : chevalAjouter
+    Author     : Javabien
 --%>
 
 <%@page import="formulaires.ChevalForm"%>
@@ -14,48 +13,51 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ajouter un cheval</title>
     </head>
     <body>
-        <h1>AJOUTER CHEVAL</h1>
-        
+        <%@ include file="menu.html"%>
+        <br><h3><u>Ajouter un cheval</u></h3><br>
+
          <%
                 //Client client=(Client)request.getAttribute("client");
                 ChevalForm form = (ChevalForm)request.getAttribute("form");
             %>
         
-        <form class="form-inline" action="chevalAjouter" method="POST">
+        <form class="form-group" action="chevalAjouter" method="POST">
                 <label for="nom">Nom : </label>
-                <input id="nom" type="text" name="nom"  size="30" maxlength="50">
+                <input class="form-control" id="nom" type="text" name="nom"  size="30" maxlength="50">
                 </br>
                 
+                <center>
                 <label for="sexe">Sexe : </label>
-                <input type="radio" name="Sexe" value="F" />F
-                <input type="radio" name="Sexe" value="M" />M
-                 </br>
+                <input class="form-control" type="radio" name="Sexe" value="F"/>F
+                <input class="form-control" type="radio" name="Sexe" value="M"/>M
+                <br><br></center>
                 
                 <label for="prixDepart">Prix de départ : </label>
-                <input id="prixDepart"  type="number"  name="prixDepart" size="30" maxlength="10">
+                <input class="form-control" id="prixDepart"  type="number"  name="prixDepart" size="30" maxlength="10">
                  </br>
                                
                 
                 <label for="vendeur">Vendeur : </label>
-                <input id="vendeur"  type="text"  name="vendeur" size="30" maxlength="50">
+                <input class="form-control" id="vendeur"  type="text"  name="vendeur" size="30" maxlength="50">
                 </br>
                 
                 <label for="proprietaire">Propriétaire : </label>
-                <input id="proprietaire"  type="text"  name="proprietaire" size="30" maxlength="50">
+                <input class="form-control" id="proprietaire"  type="text"  name="proprietaire" size="30" maxlength="50">
                 </br>
                 
                 <label for="SIRE">SIRE : </label>
-                <input id="SIRE"  type="text"  name="SIRE" size="30" maxlength="50">
+                <input class="form-control" id="SIRE"  type="text"  name="SIRE" size="30" maxlength="50">
                 </br>
                
                 </br>            
                 
                 <label for="TypeCheval">Type de cheval : </label>
-                <select name="TypeCheval" size="5" multiple>
+                <select class="form-control" name="TypeCheval" size="5" multiple>
                 <%
                         ArrayList<TypeCheval> lesTypesChev = (ArrayList)request.getAttribute("pLesTypesChev");
                         for (int i=0; i<lesTypesChev.size();i++){

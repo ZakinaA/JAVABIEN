@@ -1,7 +1,6 @@
 <%-- 
     Document   : chevalConsulter
-    Created on : 8 oct. 2020, 09:42:16
-    Author     : sio2
+    Author     : Javabien
 --%>
 
 <%@page import="modele.Cheval"%>
@@ -10,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Consultation Chevaux</title>
     </head>
     <body>
+        <%@ include file="menu.html"%>
         <h1>Infos Chevaux</h1>
         
         <%

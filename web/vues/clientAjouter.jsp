@@ -1,7 +1,6 @@
 <%-- 
     Document   : ClientAjouter
-    Created on : 22/06, 16:35:27
-    Author     : Zakina
+    Author     : Javabien
 --%>
 
 <%@page import="modele.CategVente"%>
@@ -13,10 +12,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Client Ajouter</title>
     </head>
     <body>
-        <h1>NOUVEAU CLIENT</h1>
+        <%@ include file="menu.html"%>
+        <h1>Ajouter un client</h1>
         
          <%
                 //Client client=(Client)request.getAttribute("client");

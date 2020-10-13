@@ -1,7 +1,6 @@
 <%-- 
     Document   : listerInfoCheval
-    Created on : 24 sept. 2020, 08:58:57
-    Author     : sio2
+    Author     : Javabien
 --%>
 
 <%@page import="modele.Cheval"%>
@@ -18,7 +17,7 @@
     </head>
     <body>
          <div class="container">
-        <u><h1>En savoir plus sur le cheval</h1></u>
+        <u><h1>Information du cheval</h1></u>
          <%
        Cheval unCheval = (Cheval)request.getAttribute("pUnCheval");
         %>
