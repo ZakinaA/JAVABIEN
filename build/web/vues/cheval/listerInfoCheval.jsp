@@ -24,10 +24,12 @@
         %>
         <table  class="table table-bordered table-striped table-condensed"  border="0">  
             <thead>
-                <tr>                 
+                <tr>           
                     <td><img><%out.println(unCheval.getNom());%></h2></tr>
                     <!--<td><img src="../vues/image/cheval.jpg"/></tr>-->
+                    
                     <td><img src="<%out.println(unCheval.getChemin_image());%>"></tr>
+                            
                     <td><strong><u>Id:</u></strong><%out.println(unCheval.getId());%></tr>                  
                     <td><strong><u>Sexe:</u></strong><%out.println(unCheval.getSexe());%></tr>
                     <td><strong><u>Valeur:</u></strong><%out.println(unCheval.getPrixDepart());%></tr>
