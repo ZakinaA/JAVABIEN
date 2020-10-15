@@ -1,7 +1,6 @@
 <%-- 
     Document   : listerLesChevaux
-    Created on : 17 sept. 2020, 15:36:59
-    Author     : sio2
+    Author     : Javabien
 --%>
 
 <%@page import="modele.Cheval"%>
@@ -15,11 +14,13 @@
 
         
         
-        <title>LISTE DES CHEVAUX</title>
+        <title>Liste des chevaux</title>
     </head>
     <body>
-        <div class="container">
-        <u><h1>LISTE DES CHEVAUX</h1></u>
+        
+            <%@ include file="../menu/menu.html"%>
+            <div class="container">
+        <u><h1>Liste des chevaux</h1></u>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>

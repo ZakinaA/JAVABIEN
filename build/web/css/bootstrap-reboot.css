@@ -207,6 +207,7 @@ button,
 select,
 optgroup,
 textarea {
+  height: 20px;
   margin: 0;
   font-family: inherit;
   font-size: inherit;
@@ -322,4 +323,6 @@ template {
 [hidden] {
   display: none !important;
 }
-/*# sourceMappingURL=bootstrap-reboot.css.map */
+/*# sourceMappingURL=bootstrap-reboot.css.map */.nav-item {
+
+}

@@ -61,6 +61,10 @@
         <url-pattern>/ServletClient/ajouterClient</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/ServletClient/listerLesClients</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ServletVentes</servlet-name>
         <url-pattern>/ServletVentes/listerLesCourriels</url-pattern>
     </servlet-mapping>
@@ -89,8 +93,13 @@
         <url-pattern>/ServletAdmin/categorieAjouter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
         <servlet-name>ServletConnexion</servlet-name>
         <url-pattern>/ServletConnexion</url-pattern>
+
+        <servlet-name>ServletAdmin</servlet-name>
+        <url-pattern>/ServletAdmin/listerLesCategories</url-pattern>
+
     </servlet-mapping>
     <session-config>
         <session-timeout>

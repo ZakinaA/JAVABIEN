@@ -96,6 +96,15 @@ public class ServletAdmin extends HttpServlet {
             //request.setAttribute("pLesCategVente", lesCategVentes);
             this.getServletContext().getRequestDispatcher("/vues/categorieAjouter.jsp" ).forward( request, response );
         }
+       
+               if(url.equals("/JAVABIEN/ServletAdmin/listerLesCategories"))
+        {  
+            String codeCat = (String) request.getParameter("codeCat");
+            ArrayList<CategVente> lesCategVentes = CategVenteDAO.getLesCategVentes(connection);
+            System.out.println("nb chevaux " + lesCategVentes.size() );
+            request.setAttribute("pLesCategVente", lesCategVentes);
+            getServletContext().getRequestDispatcher("/vues/ventes/listerLesCategories.jsp").forward(request, response);
+        }
     }
 
     /**

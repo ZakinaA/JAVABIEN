@@ -1,7 +1,6 @@
 <%-- 
-    Document   : Lister les Ventes 
-    Created on : 22/06/2017, 07:43
-    Author     : Zakina
+    Document   : listerLesVentes 
+    Author     : Javabien
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -12,15 +11,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+        <link href="menu.html">
        
-        <title>LISTE DES VENTES</title>
+        <title>Liste des ventes</title>
     </head>
     <body>
-        <div class="container">
-        <h1>LISTE DES VENTES</h1>
-        <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
-        <h4><a href="../ServletVentes/venteAjouter">Ajouter une vente</a></h4>
+    
+            <%@ include file="../menu/menu.html"%>
+            <div class="container">
+            <center><h1>Liste des ventes</h1>
+                <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
+                        <h4><a href="../ServletVentes/venteAjouter">Ajouter une vente</a></h4></center>
+        <img src="../vues/image/vente.png" class="img-fluid" alt="Responsive image">
+
          <%
         ArrayList<Vente> lesVentes = (ArrayList)request.getAttribute("pLesVentes");
         %>

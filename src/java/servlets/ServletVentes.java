@@ -11,7 +11,6 @@ import database.Utilitaire;
 import database.VenteDAO;
 import formulaires.VenteForm;
 import java.io.IOException;
-//import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.ArrayList;
 import javax.servlet.ServletContext;
@@ -100,6 +99,7 @@ public class ServletVentes extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesVentes.jsp").forward(request, response);
         }
         
+        
         // Récup et affichage des clients interessés par une certaine catégorie de ventes
         if(url.equals("/JAVABIEN/ServletVentes/listerLesClients"))
         {  
@@ -131,6 +131,7 @@ public class ServletVentes extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesChevaux.jsp").forward(request, response);
         }
         
+
         if(url.equals("/JAVABIEN/ServletVentes/venteAjouter"))
         {  
             ArrayList<CategVente> lesCategVentes = CategVenteDAO.getLesCategVentes(connection);
@@ -144,6 +145,7 @@ public class ServletVentes extends HttpServlet {
             
             getServletContext().getRequestDispatcher("/vues/venteAjouter.jsp").forward(request, response);
         }      
+
     }
 
     /**
