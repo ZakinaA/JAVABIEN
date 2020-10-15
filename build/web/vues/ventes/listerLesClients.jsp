@@ -1,7 +1,6 @@
 <%-- 
     Document   : listerLesClients
-    Created on : 22 juin 2017, 10:23:05
-    Author     : Zakina
+    Author     : Javabien
 --%>
 
 <%@page import="modele.Client"%>
@@ -14,11 +13,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
         
-        <title>LISTE LES CLIENTS POUR UNE CATEGORIE DE VENTE</title>
+        <title>Liste clients pour categorie vente</title>
     </head>
     <body>
         <div class="container">
-        <u><h1>LISTE DES CLIENTS POUR UNE CATEGORIE DE VENTE</h1></u>
+            <%@ include file="../menu/menu.html"%>
+        <u><h1>Liste des clients pour une categorie de vente</h1></u>
          <%
         ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
         %>

@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import database.CategVenteDAO;
 import database.Utilitaire;
 import database.VenteDAO;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.CategVente;
 import modele.Cheval;
 import modele.Client;
 import modele.Courriel;
@@ -94,6 +96,7 @@ public class ServletVentes extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesVentes.jsp").forward(request, response);
         }
         
+        
         // Récup et affichage des clients interessés par une certaine catégorie de ventes
         if(url.equals("/JAVABIEN/ServletVentes/listerLesClients"))
         {  
@@ -124,6 +127,8 @@ public class ServletVentes extends HttpServlet {
             request.setAttribute("pLesChevaux", lesChevaux);
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesChevaux.jsp").forward(request, response);
         }
+        
+
         
 
         
