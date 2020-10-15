@@ -181,7 +181,7 @@ public class VenteDAO {
             while ( rs.next() ) {  
                 Cheval unCheval = new Cheval();
                 unCheval.setId(rs.getInt("id"));
-                unCheval.setNom(rs.getString("nom"));
+                unCheval.setNom(rs.getString("nom")); 
                 
                 
                 TypeCheval unTypeChev = new TypeCheval();
