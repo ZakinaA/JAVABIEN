@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Client;
+import modele.Pays;
 
 /**
  *
@@ -71,5 +73,41 @@ public class ClientDAO {
         }
         return unClient ;    
     }
+    
+    
+    public static ArrayList<Client> getLesClientsTotal(Connection connection){      
+        ArrayList<Client> lesClients = new  ArrayList<Client>();
+        try
+        {
+            //preparation de la requete     
+            requete=connection.prepareStatement("select client.*, pays.nom from client, pays WHERE client.codePays = pays.code");
+            
+            //executer la requete
+            rs=requete.executeQuery();
+            
+            //On hydrate l'objet métier Client avec les résultats de la requête
+            while ( rs.next() ) {  
+                Client unClient = new Client();
+                unClient.setId(rs.getInt("id"));
+                unClient.setNom(rs.getString("nom"));
+                unClient.setPrenom(rs.getString("prenom"));
+                unClient.setRue(rs.getString("rue"));
+                unClient.setCopos(rs.getString("copos"));
+                unClient.setVille(rs.getString("ville"));
+                unClient.setMail(rs.getString("mail"));
+                
+                Pays unPays = new Pays();
+                unPays.setNom(rs.getString("nom"));
+
+                unClient.setUnPays(unPays);
+            }
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+        }
+        return lesClients;    
+    } 
     
 }

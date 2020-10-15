@@ -17,40 +17,41 @@
     </head>
     <body>
         <%@ include file="menu.html"%>
-        <h1>Ajouter un client</h1>
+    <center>
+        <h6><u>Ajout d'un client</u></h6>
         
          <%
                 //Client client=(Client)request.getAttribute("client");
                 ClientForm form = (ClientForm)request.getAttribute("form");
             %>
         
-        <form class="form-inline" action="ajouterClient" method="POST">
+        <form class="form-group" action="ajouterClient" method="POST">
                 <label for="nom">NOM : </label>
-                <input id="nom" type="text" name="nom"  size="30" maxlength="30">
+                <input class="form-control" id="nom" type="text" name="nom"  size="30" maxlength="30">
                 </br>
                 
                 <label for="prenom">PRENOM : </label>
-                <input id="prenom"  type="text"  name="prenom" size="30" maxlength="30">      
+                <input class="form-control" id="prenom"  type="text"  name="prenom" size="30" maxlength="30">      
                  </br>
                 
                 <label for="rue">rue : </label>
-                <input id="rue"  type="text"  name="rue" size="30" maxlength="50">
+                <input class="form-control" id="rue"  type="text"  name="rue" size="30" maxlength="50">
                  </br>
                                
                 
                 <label for="copos">Code postal : </label>
-                <input id="copos"  type="text"  name="copos" size="5" maxlength="5">
+                <input class="form-control" id="copos"  type="text"  name="copos" size="5" maxlength="5">
                 </br>
                 
                 <label for="ville">Ville : </label>
-                <input id="ville"  type="text"  name="ville" size="40" maxlength="40">
+                <input class="form-control" id="ville"  type="text"  name="ville" size="40" maxlength="40">
                 </br>
                 
                 <%-- Champ Liste des pays --%>
-                <label for="pays">Pays : </label>
-                <input list="listePays" name="pays" id="choix_pays">
+                <label for="pays">Pays : </label><br>
+                
                
-                <datalist id="codePays">
+                <select id="codePays" size="5" class="form-control">
                     <%
                         ArrayList<Pays> lesPays = (ArrayList)request.getAttribute("pLesPays");
                         for (int i=0; i<lesPays.size();i++){
@@ -58,11 +59,11 @@
                             out.println("<option value='" + p.getCode()+"'>" + p.getNom()+"</option>" );
                         }
                     %>
-                </datalist>
+                </select>
                 </br>            
                 
-                <label for="categVente">Categorie Vente : </label>
-                <select name="categVente" size="5" multiple>
+                <label for="categVente">Catégorie de vente : <i>(Vous pouvez en choisir plusieurs)</i></label><br>
+                <select name="categVente" size="5" multiple class="form-control">
                 <%
                         ArrayList<CategVente> lesCategVente = (ArrayList)request.getAttribute("pLesCategVente");
                         for (int i=0; i<lesCategVente.size();i++){
@@ -92,6 +93,6 @@
                 
             <input type="submit" name="valider" id="valider" value="Valider"/>
             </form>
-        
+    </center>
     </body>
 </html>

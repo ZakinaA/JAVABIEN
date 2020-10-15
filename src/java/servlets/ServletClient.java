@@ -9,7 +9,6 @@ import database.CategVenteDAO;
 import database.ClientDAO;
 import database.PaysDAO;
 import database.Utilitaire;
-import database.VenteDAO;
 import formulaires.ClientForm;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import modele.CategVente;
 import modele.Client;
 import modele.Pays;
-import modele.Vente;
 
 /**
  *
@@ -69,7 +67,9 @@ public class ServletClient extends HttpServlet {
             out.println("</html>");
         }
     }
-
+ 
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -95,6 +95,14 @@ public class ServletClient extends HttpServlet {
             request.setAttribute("pLesCategVente", lesCategVentes);
             this.getServletContext().getRequestDispatcher("/vues/clientAjouter.jsp" ).forward( request, response );
         }
+       
+       if(url.equals("/JAVABIEN/ServletClient/listerLesClients"))
+        {  
+            ArrayList<Client> lesClients = ClientDAO.getLesClientsTotal(connection);
+            request.setAttribute("pLesClients", lesClients);
+            getServletContext().getRequestDispatcher("/vues/client/listerLesClients.jsp").forward(request, response);
+        }
+    
     }
 
     /**
