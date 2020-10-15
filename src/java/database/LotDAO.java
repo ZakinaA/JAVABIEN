@@ -39,8 +39,8 @@ public class LotDAO {Connection connection=null;
                 //Cheval unCheval = new Cheval();
                 unLot.setId(rs.getInt("id"));
                 unLot.setPrixDepart(rs.getInt("prixDepart"));
-                unLot.setIdCheval(rs.getInt("idCheval"));
-                unLot.setidVente(rs.getInt("idVente"));
+                //unLot.setIdCheval(rs.getInt("idCheval"));
+              //  unLot.setidVente(rs.getInt("idVente"));
                 
                 
              
@@ -67,8 +67,8 @@ public class LotDAO {Connection connection=null;
             requete=connection.prepareStatement("INSERT INTO Lot (id, prixDepart, idCheval, idVente)\n" + "VALUES (?,?,?,?)");
             requete.setInt(1, unLot.getId());
             requete.setInt(2, unLot.getPrixDepart());
-            requete.setInt(3, unLot.getIdCheval());
-            requete.setString(6, unLot.getIdVente());
+            //requete.setInt(3, unLot.getIdCheval());
+            //requete.setString(6, unLot.getIdVente());
            
 
            /* Exécution de la requête */
