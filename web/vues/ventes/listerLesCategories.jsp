@@ -17,10 +17,12 @@
         <title>Liste des catégories</title>
     </head>
     <body>
-        <div class="container">
+        
             <%@ include file="../menu/menu.html"%>
-        <h1>Liste des catégories de ventes</h1>
-        <h4><a href="../ServletAdmin/categorieAjouter">Ajouter une catégorie de vente</a></h4>
+            <div class="container">
+            <center><h1>Liste des catégories de ventes</h1>
+        <h4><a href="../ServletAdmin/categorieAjouter">Ajouter une catégorie de vente</a></h4></center>
+         <img src="../vues/image/categorie.png" class="img-fluid" alt="Responsive image">
          <%
         ArrayList<CategVente> lesCategVentes = (ArrayList)request.getAttribute("pLesCategVente");
         %>

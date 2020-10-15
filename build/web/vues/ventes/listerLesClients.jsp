@@ -16,9 +16,11 @@
         <title>Liste clients pour categorie vente</title>
     </head>
     <body>
-        <div class="container">
+        
             <%@ include file="../menu/menu.html"%>
-        <u><h1>Liste des clients pour une categorie de vente</h1></u>
+            <div class="container">
+            <center><u><h1>Liste des clients pour une categorie de vente</h1></u></center>
+        
          <%
         ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
         %>

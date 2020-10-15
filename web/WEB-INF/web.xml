@@ -36,6 +36,15 @@
         <servlet-name>ServletAdmin</servlet-name>
         <servlet-class>servlets.ServletAdmin</servlet-class>
     </servlet>
+    <servlet>
+
+        <servlet-name>ServletEnchere</servlet-name>
+        <servlet-class>servlets.ServletEnchere</servlet-class>
+
+        <servlet-name>ServletConnexion</servlet-name>
+        <servlet-class>servlets.ServletConnexion</servlet-class>
+
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletVentes</servlet-name>
         <url-pattern>/ServletVentes</url-pattern>
@@ -49,8 +58,16 @@
         <url-pattern>/ServletVentes/listerLesClients</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ServletVentes</servlet-name>
+        <url-pattern>/ServletVentes/venteAjouter</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
         <servlet-name>ServletClient</servlet-name>
         <url-pattern>/ServletClient/ajouterClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletClient</servlet-name>
+        <url-pattern>/ServletClient/listerLesClients</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletVentes</servlet-name>
@@ -72,7 +89,6 @@
         <servlet-name>ServletCheval</servlet-name>
         <url-pattern>/ServletCheval/chevalAjouter</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin</url-pattern>
@@ -82,8 +98,18 @@
         <url-pattern>/ServletAdmin/categorieAjouter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
+        <servlet-name>ServletEnchere</servlet-name>
+        <url-pattern>/ServletEnchere/listerLesEncheres</url-pattern>
+
+
+        <servlet-name>ServletConnexion</servlet-name>
+        <url-pattern>/ServletConnexion</url-pattern>
+
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin/listerLesCategories</url-pattern>
+
+
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,6 +16,7 @@
         <title>Information du cheval</title>
     </head>
     <body>
+        <%@ include file="../menu/menu.html"%>
          <div class="container">
         <u><h1>Information du cheval</h1></u>
          <%

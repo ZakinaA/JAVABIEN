@@ -6,6 +6,7 @@
 package servlets;
 
 import database.ChevalDAO;
+import database.ClientDAO;
 import database.TypeChevalDAO;
 import database.Utilitaire;
 import formulaires.ChevalForm;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modele.Cheval;
+import modele.Client;
 import modele.TypeCheval;
 
 
@@ -100,8 +102,13 @@ public class ServletCheval extends HttpServlet {
         if(url.equals("/JAVABIEN/ServletCheval/chevalAjouter"))
         {  
             ArrayList<TypeCheval> lesTypesChev = TypeChevalDAO.getLesTypesChev(connection);
-            System.out.println ("lestypes " + lesTypesChev.size());
+            System.out.println ("les types " + lesTypesChev.size());
             request.setAttribute("pLesTypesChev", lesTypesChev);
+            
+            ArrayList<Client> lesClients = ChevalDAO.getLesClients(connection);
+            System.out.println ("lesclients" + lesClients.size());
+            request.setAttribute("pLesClients", lesClients);
+            
             getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp").forward(request, response);
         }
         

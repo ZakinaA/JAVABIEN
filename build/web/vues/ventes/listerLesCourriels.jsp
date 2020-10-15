@@ -11,14 +11,17 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<a href="../../../.git/HEAD"></a>
 
         
         <title>Liste des courriels</title>
     </head>
     <body>
-         <div class="container">
+         
              <%@ include file="../menu/menu.html"%>
-        <u><h1>Liste des courriels pour une catégorie de vente</h1></u>
+             <div class="container">
+             <center><u><h1>Liste des courriels pour une catégorie de vente</h1></u>
+        <img src="../vues/image/mail.png" class="img-fluid" alt="Responsive image" width="50%">
          <%
         ArrayList<Courriel> lesCourriels = (ArrayList)request.getAttribute("pLesCourriels");
         %>

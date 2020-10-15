@@ -21,24 +21,17 @@ import modele.Pays;
 import modele.TypeCheval;
 import modele.Vente;
 
-/**
- *
- * @author Zakina
- * 22/06/2017
- * Classe faisant la liaison entre la table Vente et la classe Vente
- */
+
 public class VenteDAO {
 
     
     Connection connection=null;
     static PreparedStatement requete=null;
     static ResultSet rs=null;
+    static PreparedStatement requeteCategVente = null;
+    static ResultSet rsCategVente = null;
     
-    /* @author Zakina - 22/06/2017
-    /* Méthode permettant de lister toutes les ventes enregistrées en base, triées par date décroissante.
-    /* Pour chaque vente, on récupère aussi sa catégorie.
-    /* La liste des vente est stockée dans une ArrayList
-    */
+
     public static ArrayList<Vente>  getLesVentes(Connection connection){      
         ArrayList<Vente> lesVentes = new  ArrayList<Vente>();
         try
@@ -57,7 +50,7 @@ public class VenteDAO {
                 
                 
                 CategVente uneCateg = new CategVente(); 
-                uneCateg.setCode(rs.getString("code"));  // on aurait aussi pu prendre CodeCateg
+                uneCateg.setCode(rs.getString("code")); 
                 uneCateg.setLibelle(rs.getString("libelle"));
                 
                 uneVente.setUneCategVente(uneCateg);
@@ -80,11 +73,7 @@ public class VenteDAO {
         return lesVentes ;    
     } 
     
-    /* @author Zakina - 22/06/2017
-    /* Méthode permettant de lister les clients interessés par la catégorie de la vente selectionnée (passée en paramètre de la méthode)
-    /* Pour chaque client, on récupère aussi le nom de son pays
-    /* La liste des clients est stockée dans une ArrayList
-    */
+
     public static ArrayList<Client>  getLesClients(Connection connection, String codeCateg){      
         ArrayList<Client> lesClients = new  ArrayList<Client>();
         try
@@ -201,6 +190,96 @@ public class VenteDAO {
         
     }
     
+    public static Vente ajouterVente(Connection connection, Vente uneVente){      
+        int idGenere = -1;
+        try
+        {
+           
+            requete=connection.prepareStatement("INSERT INTO vente (nom, dateDebut, codeCategVente, id_lieu)\n" + "VALUES (?,?,?,?)" , requete.RETURN_GENERATED_KEYS);
+            
+            requete.setString(1, uneVente.getNom());
+            requete.setString(2, uneVente.getDateDebutVente());
+            requete.setString(3, uneVente.getUneCategVente().getCode());
+            requete.setInt(4, uneVente.getUnLieu().getId());
+           
+
+            System.out.println("REQUETE " + requete);
+           /* Exécution de la requête */
+            int resultatRequete = requete.executeUpdate();
+                
+            
+            if (resultatRequete == 1){
+            rs = requete.getGeneratedKeys();
+            
+            
+            
+             // Récupération de id auto-généré par la bdd dans la table client
+
+            while ( rs.next() ) {
+                idGenere = rs.getInt( 1 );
+                uneVente.setId(idGenere);
+            }   
+            uneVente = getrecupvente(connection, uneVente.getId());
+            }
+            else{
+                uneVente = null;
+            }
+        }
+        
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+            uneVente=null;
+        }
+        
+        
+        
+       
+        return uneVente ;    
+    }
+    public static Vente getrecupvente(Connection connection, int idGenere){      
+        Vente uneVente = new Vente();
+        try
+        {
+            requete=connection.prepareStatement("select vente.id, vente.nom, vente.dateDebut, categvente.libelle, lieu.ville from vente, lieu , categvente where lieu.id=vente.id_lieu and categvente.code = vente.codeCategVente and vente.id = ? ");
+            requete.setInt(1, idGenere);
+            rs=requete.executeQuery();
+            
+           // System.out.println("reqqqq  " +  requete);
+           while (rs.next() ){
+               
+               uneVente.setNom(rs.getString("Nom"));
+               uneVente.setDateDebutVente(rs.getString("dateDebut"));
+               
+               CategVente uneCateg = new CategVente(); 
+               uneCateg.setLibelle(rs.getString("libelle"));
+               uneVente.setUneCategVente(uneCateg);
+
+                Lieu unLieu = new Lieu();
+                unLieu.setVille(rs.getString("ville"));
+                uneVente.setUnLieu(unLieu);
+   
+           }    
+
+
+
+           /* Exécution de la requête */
+            requete.executeUpdate();
+             
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+        }
+        return uneVente ;    
+    }
+    
     
     
 }
+    
+    
+    
+

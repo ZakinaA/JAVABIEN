@@ -1,8 +1,10 @@
+
 <%-- 
     Document   : chevalAjouter
     Author     : Javabien
 --%>
 
+<%@page import="modele.Client"%>
 <%@page import="formulaires.ChevalForm"%>
 <%@page import="modele.TypeCheval"%>
 <%@page import="modele.CategVente"%>
@@ -18,8 +20,16 @@
         <title>Ajouter un cheval</title>
     </head>
     <body>
-        <%@ include file="menu.html"%>
+
+        <h1>AJOUTER CHEVAL</h1>
+
         <br><h3><u>Ajouter un cheval</u></h3><br>
+
+        <%@ include file="menu.html"%>
+        <div class="container">
+    <center>
+        <h1><u>Ajout d'un cheval</u></h1><br>
+
 
          <%
                 //Client client=(Client)request.getAttribute("client");
@@ -40,6 +50,7 @@
                 <label for="prixDepart">Prix de départ : </label>
                 <input class="form-control" id="prixDepart"  type="number"  name="prixDepart" size="30" maxlength="10">
                  </br>
+
                                
                 
 <<<<<<< HEAD
@@ -54,7 +65,11 @@
                 <label for="proprietaire">Propriétaire : </label>
                 <input class="form-control" id="proprietaire"  type="text"  name="proprietaire" size="30" maxlength="50">
                 </br>
+<<<<<<< HEAD
 >>>>>>> 44a5752f2895d63955d4cfd8b06511f1f9f18ede
+=======
+
+>>>>>>> 20dd5599578ef8266db7441ff9e11fd2c16a8472
                 
                 <label for="SIRE">SIRE : </label>
                 <input class="form-control" id="SIRE"  type="text"  name="SIRE" size="30" maxlength="50">
@@ -73,6 +88,21 @@
                         }
                     %>
                 </select></br>
+                
+                <label for="Client">Les Clients : </label>
+                <select class="form-control" name="Client" size="5" multiple>
+                <% 
+                    
+                        ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
+                        for (int i=0; i<lesClients.size();i++){
+                            Client p = lesClients.get(i);
+                            out.println("<option value ='" + p.getId() + "'>" + p.getNom() + "</option>"); 
+                           
+                        }
+
+                    %> 
+                </select></br>
+
                 
                 
                 
@@ -93,6 +123,7 @@
                 
             <input type="submit" name="valider" id="valider" value="Valider"/>
             </form>
-        
+    </center>
+        </div>
     </body>
 </html>

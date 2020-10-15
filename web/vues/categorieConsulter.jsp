@@ -15,6 +15,7 @@
     </head>
     <body>
         <%@ include file="menu.html"%>
+        <div class="container">
         <h1>Infos catégorie de vente</h1>
         
          <%
@@ -27,6 +28,6 @@
             <tr><td>LIBELLÉ :</td><td><%  out.println(uneCategVente.getLibelle());%></td>  </tr>
               </td></tr>
         </table>
-        
+        </div>
     </body>
 </html>

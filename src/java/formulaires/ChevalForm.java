@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import modele.Cheval;
+import modele.Client;
 import modele.TypeCheval;
 
 /**
@@ -65,14 +66,15 @@ public class ChevalForm {
         String sexe = getDataForm( request, "sexe");
         String prixDepart = getDataForm( request, "prixDepart" );
         Integer result = Integer.parseInt(prixDepart);
-        String vendeur = getDataForm( request, "vendeur");
-        String proprietaire = getDataForm( request, "proprietaire" );
         String sire = getDataForm( request, "sire" );
         //String unTypeCheval = getDataForm( request, "id_typeChev" );
         
          TypeCheval unTypeChev  = new TypeCheval();
-         
          String id = getDataForm( request, "id_typechev");
+         
+         // Liaison entre Cheval et Client 
+         Client unClient = new Client();
+         String Id = getDataForm( request, "id_Client");
         
         // Traitement de la liste à choix multiple
         //Pour chq catégorie selectionné, on instancie une nouvelle catégorie et on l'ajoute au client
@@ -103,10 +105,9 @@ public class ChevalForm {
         unCheval.setNom(nom);
         unCheval.setSexe(sexe);
         unCheval.setPrixDepart(result);
-        unCheval.setVendeur(vendeur);
-        unCheval.setProprietaire(proprietaire);
         unCheval.setSire(sire);
         unCheval.setUnTypeChev(unTypeChev);
+        unCheval.setUnClient(unClient);
         
                
        

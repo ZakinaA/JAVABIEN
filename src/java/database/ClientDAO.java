@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Client;
+import modele.Pays;
 
 /**
  *
@@ -35,7 +37,7 @@ public class ClientDAO {
             // id (clé primaire de la table client) est en auto_increment,donc on ne renseigne pas cette valeur
             // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
             // supprimer ce paramètre en cas de requête sans auto_increment.
-            requete=connection.prepareStatement("INSERT INTO CLIENT ( nom, prenom, rue, copos, ville, codePays)\n" +
+            requete=connection.prepareStatement("INSERT INTO client ( nom, prenom, rue, copos, ville, codePays)\n" +
                     "VALUES (?,?,?,?,?,?)", requete.RETURN_GENERATED_KEYS );
             requete.setString(1, unClient.getNom());
             requete.setString(2, unClient.getPrenom());
@@ -71,5 +73,41 @@ public class ClientDAO {
         }
         return unClient ;    
     }
+    
+    
+    public static ArrayList<Client> getLesClientsTotal(Connection connection){      
+        ArrayList<Client> lesClients = new  ArrayList<Client>();
+        try
+        {
+            //preparation de la requete     
+            requete=connection.prepareStatement("select client.*, pays.nom from client, pays WHERE client.codePays = pays.code");
+            
+            //executer la requete
+            rs=requete.executeQuery();
+            
+            //On hydrate l'objet métier Client avec les résultats de la requête
+            while ( rs.next() ) {  
+                Client unClient = new Client();
+                unClient.setId(rs.getInt("id"));
+                unClient.setNom(rs.getString("nom"));
+                unClient.setPrenom(rs.getString("prenom"));
+                unClient.setRue(rs.getString("rue"));
+                unClient.setCopos(rs.getString("copos"));
+                unClient.setVille(rs.getString("ville"));
+                unClient.setMail(rs.getString("mail"));
+                
+                Pays unPays = new Pays();
+                unPays.setNom(rs.getString("nom"));
+
+                unClient.setUnPays(unPays);
+            }
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+        }
+        return lesClients;    
+    } 
     
 }

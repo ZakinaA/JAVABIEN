@@ -12,15 +12,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link href="menu.html">
        
         <title>Liste des clients</title>
     </head>
     <body>
+        <%@ include file="../menu/menu.html"%>
         <div class="container">
-            <%@ include file="../menu/menu.html"%>
-        <h1>Liste des clients</h1>
-        <h4><a href="../ServletClient/clientAjouter">Ajouter un client</a></h4>
+            
+            <center><h1>Liste des clients</h1>
+                <h4><a href="../ServletClient/ajouterClient">Ajouter un client</a></h4>
+        <img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"><img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"></center>
          <%
         ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
         %>
