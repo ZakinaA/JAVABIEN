@@ -17,8 +17,9 @@
         <title>Liste des courriels</title>
     </head>
     <body>
-         <div class="container">
+         
              <%@ include file="../menu/menu.html"%>
+             <div class="container">
              <center><u><h1>Liste des courriels pour une catégorie de vente</h1></u>
         <img src="../vues/image/mail.png" class="img-fluid" alt="Responsive image" width="50%">
          <%

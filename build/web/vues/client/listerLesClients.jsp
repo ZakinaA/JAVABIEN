@@ -16,8 +16,9 @@
         <title>Liste des clients</title>
     </head>
     <body>
+        <%@ include file="../menu/menu.html"%>
         <div class="container">
-            <%@ include file="../menu/menu.html"%>
+            
             <center><h1>Liste des clients</h1>
                 <h4><a href="../ServletClient/ajouterClient">Ajouter un client</a></h4>
         <img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"><img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"></center>

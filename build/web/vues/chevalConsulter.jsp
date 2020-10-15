@@ -14,6 +14,7 @@
     </head>
     <body>
         <%@ include file="menu.html"%>
+        <div class="container">
         <h1>Infos Chevaux</h1>
         
         <%
@@ -33,6 +34,6 @@
          
               </td></tr>
         </table>
-        
+        </div>
     </body>
 </html>

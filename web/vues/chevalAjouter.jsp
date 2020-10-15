@@ -19,8 +19,9 @@
     </head>
     <body>
         <%@ include file="menu.html"%>
+        <div class="container">
     <center>
-        <h6><u>Ajout d'un cheval</u></h6>
+        <h1><u>Ajout d'un cheval</u></h1><br>
 
          <%
                 //Client client=(Client)request.getAttribute("client");
@@ -89,5 +90,6 @@
             <input type="submit" name="valider" id="valider" value="Valider"/>
             </form>
     </center>
+        </div>
     </body>
 </html>

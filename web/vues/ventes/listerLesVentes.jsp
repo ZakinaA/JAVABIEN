@@ -16,8 +16,9 @@
         <title>Liste des ventes</title>
     </head>
     <body>
-        <div class="container">
+        
             <%@ include file="../menu/menu.html"%>
+            <div class="container">
             <center><h1>Liste des ventes</h1>
                 <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4></center>
         <img src="../vues/image/vente.png" class="img-fluid" alt="Responsive image">

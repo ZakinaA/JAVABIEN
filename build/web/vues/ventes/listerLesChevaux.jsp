@@ -17,8 +17,9 @@
         <title>Liste des chevaux</title>
     </head>
     <body>
-        <div class="container">
+        
             <%@ include file="../menu/menu.html"%>
+            <div class="container">
         <u><h1>Liste des chevaux</h1></u>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");

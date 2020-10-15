@@ -7,8 +7,9 @@
     </head>
     <body>
         <%@ include file="menu.html"%>
+        <div class="container">
     <center>
-        <h6><u>Ajout d'une catégorie de vente</u></h6>
+        <h1><u>Ajout d'une catégorie de vente</u></h1><br>
         
          <%
                 //Client client=(Client)request.getAttribute("client");
@@ -25,6 +26,7 @@
                 <br>
                 
             <input type="submit" name="valider" id="valider" value="Valider"/>
-        </form>     
+        </form> 
+        </div>     
     </body>
 </html>
