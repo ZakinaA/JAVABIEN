@@ -18,8 +18,9 @@
     <body>
         <div class="container">
             <%@ include file="../menu/menu.html"%>
-        <h1>Liste des clients</h1>
-        <h4><a href="../ServletClient/ajouterClient">Ajouter un client</a></h4>
+            <center><h1>Liste des clients</h1>
+                <h4><a href="../ServletClient/ajouterClient">Ajouter un client</a></h4>
+        <img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"><img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"></center>
          <%
         ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
         %>

@@ -18,8 +18,9 @@
     <body>
         <div class="container">
             <%@ include file="../menu/menu.html"%>
-        <h1>Liste des ventes</h1>
-        <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
+            <center><h1>Liste des ventes</h1>
+                <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4></center>
+        <img src="../vues/image/vente.png" class="img-fluid" alt="Responsive image">
          <%
         ArrayList<Vente> lesVentes = (ArrayList)request.getAttribute("pLesVentes");
         %>
