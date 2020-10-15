@@ -1,7 +1,6 @@
 <%-- 
-    Document   : consulterClient
-    Created on : 23 juin 2017, 10:33:23
-    Author     : Zakina
+    Document   : categorieConsulter
+    Author     : Javabien
 --%>
 
 <%@page import="modele.CategVente"%>
@@ -10,10 +9,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consultation Categorie de vente</title>
+        <title>Consultation categorie de vente</title>
     </head>
     <body>
+        <%@ include file="menu.html"%>
+        <div class="container">
         <h1>Infos catégorie de vente</h1>
         
          <%
@@ -26,6 +28,6 @@
             <tr><td>LIBELLÉ :</td><td><%  out.println(uneCategVente.getLibelle());%></td>  </tr>
               </td></tr>
         </table>
-        
+        </div>
     </body>
 </html>
