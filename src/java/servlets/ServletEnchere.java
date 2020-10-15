@@ -6,45 +6,24 @@
 package servlets;
 
 import database.ChevalDAO;
-import database.ClientDAO;
-import database.TypeChevalDAO;
-import database.Utilitaire;
-import formulaires.ChevalForm;
+import database.EnchereDAO;
+import formulaires.EnchereForm;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
-import java.util.ArrayList;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modele.Cheval;
-import modele.Client;
-import modele.TypeCheval;
-
-
+import modele.Enchere;
 
 /**
  *
- * @author Zakina
- * Classe Servlet permettant d'executer les fonctionnalités relatives aux ventes :
- * Fonctionnalités implémentées :
- *      lister les ventes
- *      lister les clients d'une vente passée en paramètre
+ * @author sio2
  */
-public class ServletCheval extends HttpServlet {
+public class ServletEnchere extends HttpServlet {
     
-     Connection connection ;
-      
-        
-    @Override
-    public void init()
-    {     
-        ServletContext servletContext=getServletContext();
-        connection=(Connection)servletContext.getAttribute("connection");
-    }
-    
-    
+    Connection connection ;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,13 +39,13 @@ public class ServletCheval extends HttpServlet {
         //response.setContentType("text/html;charset=UTF-8");
         //try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            /*out.println("<!DOCTYPE html>");
+           /* out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletVentes</title>");            
+            out.println("<title>Servlet ServletEnchere</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletVentes at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServletEnchere at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }*/
@@ -81,39 +60,22 @@ public class ServletCheval extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
-        
+       // processRequest(request, response);
+       
         String url = request.getRequestURI();
         
         // Récup et affichage par date décroissante de toutes les ventes   
           
-        if(url.equals("/JAVABIEN/ServletCheval/listerInfoCheval"))
+        if(url.equals("/JAVABIEN/ServletEnchere/listerLesEncheres"))
         {  
-            String idCheval = (String) request.getParameter("idCheval");
-            Cheval unCheval = ChevalDAO.getLeCheval(connection, idCheval);
-            request.setAttribute("pUnCheval", unCheval);
-            getServletContext().getRequestDispatcher("/vues/cheval/listerInfoCheval.jsp").forward(request, response);
+            String numEnchere = (String) request.getParameter("numEnchere");
+            Enchere uneEnchere = EnchereDAO.getUneEnchere(connection, numEnchere);
+            request.setAttribute("pUneEnchere", uneEnchere);
+            getServletContext().getRequestDispatcher("/vues/vente/listerLesEncheres.jsp").forward(request, response);
         }
-        
-        
-        if(url.equals("/JAVABIEN/ServletCheval/chevalAjouter"))
-        {  
-            ArrayList<TypeCheval> lesTypesChev = TypeChevalDAO.getLesTypesChev(connection);
-            System.out.println ("lestypes " + lesTypesChev.size());
-            request.setAttribute("pLesTypesChev", lesTypesChev);
-            
-            ArrayList<Client> lesClients = ChevalDAO.getLesClients(connection);
-            System.out.println ("lesclients" + lesClients.size());
-            request.setAttribute("pLesClients", lesClients);
-            
-            getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp").forward(request, response);
-        }
-        
-        
-        
     }
 
     /**
@@ -127,21 +89,22 @@ public class ServletCheval extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               
-         /* Préparation de l'objet formulaire */
-        ChevalForm form = new ChevalForm();
+        //processRequest(request, response);
+        
+        /* Préparation de l'objet formulaire */
+        EnchereForm form = new EnchereForm();
 		
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-        Cheval unCheval = form.ajouterCheval(request);
+        Enchere uneEnchere = form.listerLesEncheres(request);
         
         /* Stockage du formulaire et de l'objet dans l'objet request */
         request.setAttribute( "form", form );
-        request.setAttribute( "pCheval", unCheval );
+        request.setAttribute( "pEnchere", uneEnchere );
 		
         if (form.getErreurs().isEmpty()){
             // Il n'y a pas eu d'erreurs de saisie, donc on renvoie la vue affichant les infos du client 
-            ChevalDAO.ajouterCheval(connection, unCheval);
-            this.getServletContext().getRequestDispatcher("/vues/chevalConsulter.jsp" ).forward( request, response );
+            EnchereDAO.listerLesEncheres(connection, uneEnchere);
+            this.getServletContext().getRequestDispatcher("/vues/listerLesEncheres.jsp" ).forward( request, response );
         }
         else
         { 
@@ -151,9 +114,8 @@ public class ServletCheval extends HttpServlet {
             
             //ArrayList<CategVente> lesCategVentes = CategVenteDAO.getLesCategVentes(connection);
             //request.setAttribute("pLesCategVente", lesCategVentes);
-           this.getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp" ).forward( request, response );
+           this.getServletContext().getRequestDispatcher("/vues/listerLesEncheres.jsp" ).forward( request, response );
         }
-    
     }
 
     /**
@@ -164,25 +126,6 @@ public class ServletCheval extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
-    
-  public void destroy(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
-    {
-        try
-        {
-            //fermeture
-            System.out.println("Connexion fermée");
-        }
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-            System.out.println("Erreur lors de l’établissement de la connexion");
-        }
-        finally
-        {
-            //Utilitaire.fermerConnexion(rs);
-            //Utilitaire.fermerConnexion(requete);
-            Utilitaire.fermerConnexion(connection);
-        }
-    }
+    }// </editor-fold>
+
 }

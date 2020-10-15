@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Cheval;
+import modele.Client;
 import modele.TypeCheval;
 
 /**
@@ -26,7 +28,7 @@ public class ChevalDAO {
         try
         {
             //preparation de la requete     
-            requete=connection.prepareStatement("SELECT cheval.*, typecheval.libelle FROM cheval, typecheval WHERE cheval.id = typecheval.id AND cheval.id = ?");
+            requete=connection.prepareStatement("SELECT cheval.*, typecheval.libelle, client.nom FROM client,appartenir, cheval, typecheval WHERE appartenir.id_cheval = cheval.id AND appartenir.id_client = client.id AND cheval.id = typecheval.id AND cheval.id = ?");
         
             //executer la requete
             
@@ -41,8 +43,6 @@ public class ChevalDAO {
                 unCheval.setNom(rs.getString("nom"));
                 unCheval.setSexe(rs.getString("sexe"));
                 unCheval.setPrixDepart(rs.getInt("prixDepart"));
-                unCheval.setVendeur(rs.getString("vendeur"));
-                unCheval.setProprietaire(rs.getString("proprietaire"));
                 unCheval.setSire(rs.getString("SIRE"));
                 unCheval.setMere(rs.getString("id_mere"));
                 unCheval.setPere(rs.getString("id_pere"));
@@ -50,10 +50,14 @@ public class ChevalDAO {
                 
                 TypeCheval unTypeChev = new TypeCheval();
                 unTypeChev.setLibelle(rs.getString("libelle"));
-                
-                
+
                 unCheval.setUnTypeChev(unTypeChev);
                 //Cheval.add(unCheval);
+                
+                Client unClient = new Client();
+                unClient.setNom(rs.getString ("nom"));
+                
+                unCheval.setUnClient(unClient);
             }
         }   
         catch (SQLException e) 
@@ -73,14 +77,14 @@ public class ChevalDAO {
             // id (clé primaire de la table client) est en auto_increment,donc on ne renseigne pas cette valeur
             // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
             // supprimer ce paramètre en cas de requête sans auto_increment.
-            requete=connection.prepareStatement("INSERT INTO CHEVAL (nom, sexe, prixDepart, vendeur, proprietaire, SIRE, id_typeChev)\n" + "VALUES (?,?,?,?,?,?,?)");
+            requete=connection.prepareStatement("INSERT INTO CHEVAL (nom, sexe, prixDepart,SIRE, id_typeChev, id_Client)\n" + "VALUES (?,?,?,?,?,?)");
             requete.setString(1, unCheval.getNom());
             requete.setString(2, unCheval.getSexe());
             requete.setInt(3, unCheval.getPrixDepart());
-            requete.setString(4, unCheval.getVendeur());
-            requete.setString(5, unCheval.getProprietaire());
-            requete.setString(6, unCheval.getSire());
-            requete.setInt(7, unCheval.getUnTypeChev().getId());
+            requete.setString(4, unCheval.getSire());
+            requete.setInt(5, unCheval.getUnTypeChev().getId());
+            requete.setInt(6, unCheval.getUnClient().getId());
+
 
            /* Exécution de la requête */
             requete.executeUpdate();
@@ -100,7 +104,7 @@ public class ChevalDAO {
              //    requete2.setString(2, unClient.getLesCategVentes().get(i).getCode());
              //    requete2.executeUpdate();
         //    }
-            
+  
         }   
         catch (SQLException e) 
         {
@@ -109,6 +113,36 @@ public class ChevalDAO {
         }
         return unCheval ;    
     }
+    
+    public static ArrayList<Client>  getLesClients(Connection connection){      {      
+        ArrayList<Client> LesClients = new  ArrayList<Client>();
+        try
+        {
+            //preparation de la requete     
+            requete=connection.prepareStatement("SELECT * from client");          
+            //executer la requete
+            rs=requete.executeQuery();
+            
+            //On hydrate l'objet métier Client avec les résultats de la requête
+            while ( rs.next() ) {  
+                Client unClient = new Client();
+                unClient.setId(rs.getInt("id"));
+                unClient.setNom(rs.getString("nom"));
+            
+                LesClients.add(unClient);
+
+            }
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return LesClients ;    
+    }
+
+        
+        }   
+      
 }
 
 

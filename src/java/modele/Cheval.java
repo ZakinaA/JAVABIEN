@@ -24,6 +24,7 @@ public class Cheval {
     private String chemin_image;
     private TypeCheval unTypeChev;
     private ArrayList<Vente> lesVentes ;
+    private Client unClient;
 
     public Cheval() {
     }
@@ -123,6 +124,17 @@ public class Cheval {
     public void setPere(String pere) {
         this.pere = pere;
     }
+    
+
+    public Client getUnClient() {
+        return unClient;
+    }
+
+    public void setUnClient(Client unClient) {
+        this.unClient = unClient;
+    }
+    
+    
     
     
 

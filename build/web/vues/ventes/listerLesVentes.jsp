@@ -33,9 +33,10 @@
                     <th>catégorie</th>  
                     <th>Ville</th>
                     <th>NbBoxes(dev)</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Clients interessés</th>
+                    <th>Lister les Courriels</th>
+                    <th>Lister les Chevaux </th>
+                    <th>Historique des Enchères</th>
             <br>
             <br>
                 </tr> 
@@ -71,6 +72,7 @@
                         out.println(uneVente.getUnLieu().getNbBoxes());
                         out.println("</td>");
                         
+                        
                         out.println("<td><a href ='../ServletVentes/listerLesClients?codeCat="+ uneVente.getUneCategVente().getCode()+ "'>");
                         out.println("Lister les clients interessés");
                         out.println("</td>");
@@ -81,6 +83,10 @@
                         
                         out.println("<td><a href ='../ServletVentes/listerLesChevaux?idVente="+ uneVente.getId()+ "'>");
                         out.println("Lister les Chevaux en vente");
+                        out.println("</td>");
+                        
+                        out.println("<td><a href ='../ServletVentes/listerLesEncheres?idVente="+ uneVente.getId()+ "'>");
+                        out.println("Informations sur les Enchères ");
                         out.println("</td>");
                         
                                

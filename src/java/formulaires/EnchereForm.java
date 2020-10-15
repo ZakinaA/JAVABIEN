@@ -5,18 +5,20 @@
  */
 package formulaires;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import modele.Cheval;
-import modele.Client;
-import modele.TypeCheval;
+import modele.Enchere;
+import modele.Lot;
+import modele.Vente;
 
 /**
  *
- * @author Zakina
+ * @author sio2
  */
-public class ChevalForm {
+public class EnchereForm {
     
     private String resultat;
     private Map<String, String> erreurs      = new HashMap<String, String>();
@@ -37,13 +39,6 @@ public class ChevalForm {
         this.erreurs = erreurs;
     }
     
-    //méthode de validation du champ de saisie nom
-    //private void validationNom( String nom ) throws Exception {
-    //    if ( nom != null && nom.length() < 3 ) {
-    //    throw new Exception( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
-    //    }
-    //}
-
     private void setErreur( String champ, String message ) {
     erreurs.put(champ, message );
     }    
@@ -57,24 +52,23 @@ public class ChevalForm {
         }   
     }
     
-    
-    public Cheval ajouterCheval( HttpServletRequest request ) {
+    public Enchere listerLesEncheres( HttpServletRequest request ) {
       
-        Cheval unCheval  = new Cheval();
+        Enchere uneEnchere  = new Enchere();
          
-        String nom = getDataForm( request, "nom" );
-        String sexe = getDataForm( request, "sexe");
-        String prixDepart = getDataForm( request, "prixDepart" );
-        Integer result = Integer.parseInt(prixDepart);
-        String sire = getDataForm( request, "sire" );
+        String montant = getDataForm( request, "montant" );
         //String unTypeCheval = getDataForm( request, "id_typeChev" );
-        
-         TypeCheval unTypeChev  = new TypeCheval();
-         String id = getDataForm( request, "id_typechev");
+         Float montant1 = Float.parseFloat(montant);
+         Lot unLot  = new Lot();
+         String prixDepart = getDataForm( request, "prixDepart_Lot");
          
          // Liaison entre Cheval et Client 
-         Client unClient = new Client();
-         String Id = getDataForm( request, "id_Client");
+         Vente uneVente = new Vente();
+         String nom = getDataForm( request, "nom_Vente");
+         String dateDebut = getDataForm( request, "dateDebut_Vente");
+         
+         Cheval unCheval  = new Cheval();
+         String Nom = getDataForm( request, "nom_cheval");
         
         // Traitement de la liste à choix multiple
         //Pour chq catégorie selectionné, on instancie une nouvelle catégorie et on l'ajoute au client
@@ -102,19 +96,15 @@ public class ChevalForm {
         }
          
       
-        unCheval.setNom(nom);
-        unCheval.setSexe(sexe);
-        unCheval.setPrixDepart(result);
-        unCheval.setSire(sire);
-        unCheval.setUnTypeChev(unTypeChev);
-        unCheval.setUnClient(unClient);
+        uneEnchere.setMontant(montant1);
+        uneEnchere.setUnLot(unLot);
+        uneEnchere.setUneVente(uneVente);
+        uneEnchere.setUnCheval(unCheval);
+       
         
                
        
-        return unCheval ;
+        return uneEnchere ;
     }
     
-    
-    
-
 }

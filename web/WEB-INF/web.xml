@@ -36,6 +36,10 @@
         <servlet-name>ServletAdmin</servlet-name>
         <servlet-class>servlets.ServletAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletEnchere</servlet-name>
+        <servlet-class>servlets.ServletEnchere</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletVentes</servlet-name>
         <url-pattern>/ServletVentes</url-pattern>
@@ -72,7 +76,6 @@
         <servlet-name>ServletCheval</servlet-name>
         <url-pattern>/ServletCheval/chevalAjouter</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin</url-pattern>
@@ -80,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin/categorieAjouter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEnchere</servlet-name>
+        <url-pattern>/ServletEnchere/listerLesEncheres</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

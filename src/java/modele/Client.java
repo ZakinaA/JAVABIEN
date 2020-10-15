@@ -22,6 +22,7 @@ public class Client {
     private String ville;
     private Pays unPays ;
     private ArrayList<CategVente> lesCategVentes ;
+    private ArrayList<Cheval> lesChevaux ;
 
     public Client() {
     }
@@ -95,6 +96,23 @@ public class Client {
     public void setUnPays(Pays unPays) {
         this.unPays = unPays;
     }
+
+    public ArrayList<Cheval> getLesChevaux() {
+        return lesChevaux;
+    }
+
+    public void setLesChevaux(ArrayList<Cheval> lesChevaux) {
+        this.lesChevaux = lesChevaux;
+    }
+    
+        public void addUnCheval(Cheval unCheval){
+        if (lesChevaux == null){
+            lesChevaux = new ArrayList<Cheval>();
+        }
+        lesChevaux.add(unCheval);
+    }
+    
+    
 
     public ArrayList<CategVente> getLesCategVentes() {
         return lesCategVentes;
