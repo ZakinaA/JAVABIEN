@@ -5,8 +5,11 @@
  */
 package servlets;
 
+import database.CategVenteDAO;
+import database.LieuDAO;
 import database.Utilitaire;
 import database.VenteDAO;
+import formulaires.VenteForm;
 import java.io.IOException;
 //import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,10 +19,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.CategVente;
 import modele.Cheval;
 import modele.Client;
 import modele.Courriel;
+import modele.Lieu;
 import modele.Vente;
+
 
 /**
  *
@@ -125,10 +131,19 @@ public class ServletVentes extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesChevaux.jsp").forward(request, response);
         }
         
-
-        
-        
-        
+        if(url.equals("/JAVABIEN/ServletVentes/venteAjouter"))
+        {  
+            ArrayList<CategVente> lesCategVentes = CategVenteDAO.getLesCategVentes(connection);
+            System.out.println ("les categVentes " + lesCategVentes.size());
+            request.setAttribute("pLesCategVentes", lesCategVentes);
+            
+            
+            ArrayList<Lieu> lesLieux = LieuDAO.getLesLieux(connection);
+            System.out.println ("les Lieux " + lesLieux.size());
+            request.setAttribute("pLesLieux", lesLieux);
+            
+            getServletContext().getRequestDispatcher("/vues/venteAjouter.jsp").forward(request, response);
+        }      
     }
 
     /**
@@ -141,15 +156,38 @@ public class ServletVentes extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+              throws ServletException, IOException {
+               
+         /* Préparation de l'objet formulaire */
+        VenteForm form = new VenteForm();
+		
+        /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
+        Vente uneVente = form.ajouterVente(request);
+        
+        /* Stockage du formulaire et de l'objet dans l'objet request */
+        request.setAttribute( "form", form );
+        //request.setAttribute( "pVente", uneVente );
+		
+        if (form.getErreurs().isEmpty()){
+            // Il n'y a pas eu d'erreurs de saisie, donc on renvoie la vue affichant les infos du client 
+            Vente uneVente2= VenteDAO.ajouterVente(connection, uneVente);
+            //uneVente2 = null;
+            System.out.println("vente : " + uneVente2);
+            if (uneVente2 != null){
+             //  System.out.println("vente N'EST PAS NUL: " + uneVente2);
+                request.setAttribute("pVente", uneVente2);
+                this.getServletContext().getRequestDispatcher("/vues/venteConsulter.jsp" ).forward( request, response );
+            }
+            else{
+              //  System.out.println("vente EST NUL: " + uneVente2);
+                this.getServletContext().getRequestDispatcher("/vues/venteAjouter.jsp" ).forward( request, response );
+            }
+        }
     }
+    
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
+    
     @Override
     public String getServletInfo() {
         return "Short description";

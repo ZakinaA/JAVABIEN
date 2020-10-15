@@ -20,6 +20,7 @@
         <div class="container">
         <h1>LISTE DES VENTES</h1>
         <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
+        <h4><a href="../ServletVentes/venteAjouter">Ajouter une vente</a></h4>
          <%
         ArrayList<Vente> lesVentes = (ArrayList)request.getAttribute("pLesVentes");
         %>

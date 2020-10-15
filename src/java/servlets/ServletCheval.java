@@ -100,7 +100,7 @@ public class ServletCheval extends HttpServlet {
         if(url.equals("/JAVABIEN/ServletCheval/chevalAjouter"))
         {  
             ArrayList<TypeCheval> lesTypesChev = TypeChevalDAO.getLesTypesChev(connection);
-            System.out.println ("lestypes " + lesTypesChev.size());
+            System.out.println ("les types " + lesTypesChev.size());
             request.setAttribute("pLesTypesChev", lesTypesChev);
             getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp").forward(request, response);
         }
