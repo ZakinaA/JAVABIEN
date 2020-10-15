@@ -81,6 +81,10 @@
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin/categorieAjouter</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAdmin</servlet-name>
+        <url-pattern>/ServletAdmin/listerLesCategories</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
