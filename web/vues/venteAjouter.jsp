@@ -14,26 +14,29 @@
         <title>Ajouter une Vente</title>
     </head>
     <body>
-        <h1>AJOUTER VENTE</h1>
+        <%@ include file="menu.html"%>
+            <div class="container">
+            <center><h1>Ajout d'une vente</h1>
+
         
          <%
                 
                 VenteForm form = (VenteForm)request.getAttribute("form");
             %>
         
-        <form class="form-inline" action="venteAjouter" method="POST">
+        <form class="form-group" action="venteAjouter" method="POST">
                 
 
                 <label for="nom">Nom : </label>
-                <input id="nom" type="text" name="nom"  size="30" maxlength="50">
+                <input class="form-control" id="nom" type="text" name="nom"  size="30" maxlength="50">
                  </br>
                 
                 <label for="date">Date de début : </label>
-                <input id="date"  type="date"  name="dateDebut" size="30" maxlength="10">
+                <input class="form-control" id="date"  type="date"  name="dateDebut" size="30" maxlength="10">
                  </br>
                 
                 <label for="categVente">Categorie de vente : </label>
-                <select name="categVente" size="5" >
+                <select class="form-control" name="categVente" size="5" >
                 <%
                         ArrayList<CategVente> uneCategVente = (ArrayList)request.getAttribute("pLesCategVentes");
                         for (int i=0; i<uneCategVente.size();i++){
@@ -47,7 +50,7 @@
                 </br>            
                 
                 <label for="Lieu">Lieu de vente : </label>
-                <select name="lieu" size="5" >
+                <select class="form-control" name="lieu" size="5" >
                 <%
                         ArrayList<Lieu> lesLieux = (ArrayList)request.getAttribute("pLesLieux");
                         for (int i=0; i<lesLieux.size();i++){

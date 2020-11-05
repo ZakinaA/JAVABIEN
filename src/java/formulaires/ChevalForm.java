@@ -66,34 +66,13 @@ public class ChevalForm {
         String sexe = getDataForm( request, "sexe");
         String prixDepart = getDataForm( request, "prixDepart" );
         Integer result = Integer.parseInt(prixDepart);
-        String sire = getDataForm( request, "sire" );
-        //String unTypeCheval = getDataForm( request, "id_typeChev" );
+        String sire = getDataForm( request, "SIRE" ); 
+       
         
          TypeCheval unTypeChev  = new TypeCheval();
-         String id = getDataForm( request, "id_typechev");
+         String id = getDataForm( request, "TypeCheval");
+         unTypeChev.setId(Integer.parseInt(id));
          
-         // Liaison entre Cheval et Client 
-         Client unClient = new Client();
-         String Id = getDataForm( request, "id_Client");
-        
-        // Traitement de la liste à choix multiple
-        //Pour chq catégorie selectionné, on instancie une nouvelle catégorie et on l'ajoute au client
-        //TypeCheval unTypeChev ;
-        //String[] typeCheval = request.getParameterValues("typeCheval");
-        //for (int i=0; i<typeCheval.length; i++){
-         //   unTypeChev = new TypeCheval();
-        //    unTypeChev.setId(unTypeChev[i]);
-        //    unCheval.addUnTypeChev(unTypeChev);
-        //}
-        
- 
-       
-        //try {
-        //     validationNom( nom );
-       // } catch ( Exception e ) {
-        //    setErreur( "nom", e.getMessage() );
-        //}
-        //unClient.setNom(nom);
 
         if ( erreurs.isEmpty() ) {
             resultat = "Succès de l'ajout.";
@@ -107,7 +86,7 @@ public class ChevalForm {
         unCheval.setPrixDepart(result);
         unCheval.setSire(sire);
         unCheval.setUnTypeChev(unTypeChev);
-        unCheval.setUnClient(unClient);
+
         
                
        
