@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listerLesChevaux
+    Document   : listerToutLesChevaux
     Author     : Javabien
 --%>
 
@@ -14,13 +14,13 @@
 
         
         
-        <title>Liste des chevaux</title>
+        <title>Liste de tous les chevaux</title>
     </head>
     <body>
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-        <u><h1>Liste des chevaux</h1></u>
+        <u><h1>Liste de tous les chevaux</h1></u>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>
@@ -47,9 +47,9 @@
                         out.println(unCheval.getId());
                         out.println("</a></td>");
 
-                       out.println("<td>");
-                       out.println(unCheval.getNom());
-                       out.println("</td>");
+                        out.println("<td>");
+                        out.println(unCheval.getNom());
+                        out.println("</td>");
                         
                         out.println("<td>");
                         out.println(unCheval.getUnTypeChev().getLibelle());
@@ -74,4 +74,5 @@
          
     </body>
 </html>
+
 

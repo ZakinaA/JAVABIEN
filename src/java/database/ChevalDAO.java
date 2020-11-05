@@ -5,6 +5,7 @@
  */
 package database;
 
+import static database.VenteDAO.requete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -146,6 +147,42 @@ public class ChevalDAO {
         
         }   
       
+    public static ArrayList<Cheval>  getLesChevaux(Connection connection){      
+        ArrayList<Cheval> lesChevaux = new  ArrayList<Cheval>();
+        try
+        {
+            //preparation de la requete     
+            requete=connection.prepareStatement("SELECT cheval.id, cheval.nom, typecheval.libelle FROM typecheval, cheval WHERE typecheval.id = cheval.id_typeChev ORDER BY cheval.id");          
+            //executer la requete
+            
+            
+            System.out.println("requete  " + requete);
+            rs=requete.executeQuery();
+            
+            //On hydrate l'objet métier Client avec les résultats de la requête
+            while ( rs.next() ) {  
+                Cheval unCheval = new Cheval();
+                unCheval.setId(rs.getInt("id"));
+                unCheval.setNom(rs.getString("nom")); 
+                
+                
+                TypeCheval unTypeChev = new TypeCheval();
+                unTypeChev.setId(rs.getInt("id"));
+                unTypeChev.setLibelle(rs.getString("libelle"));
+                
+                unCheval.setUnTypeChev(unTypeChev);
+                
+                lesChevaux.add(unCheval);
+            }
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+        return lesChevaux ;    
+        
+    }
+   
 }
 
 

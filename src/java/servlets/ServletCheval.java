@@ -9,6 +9,7 @@ import database.ChevalDAO;
 import database.ClientDAO;
 import database.TypeChevalDAO;
 import database.Utilitaire;
+import database.VenteDAO;
 import formulaires.ChevalForm;
 import java.io.IOException;
 import java.sql.Connection;
@@ -98,6 +99,14 @@ public class ServletCheval extends HttpServlet {
             request.setAttribute("pUnCheval", unCheval);
             getServletContext().getRequestDispatcher("/vues/cheval/listerInfoCheval.jsp").forward(request, response);
         }
+        if(url.equals("/JAVABIEN/ServletVentes/listerLesChevaux"))
+        {  
+            String idVente = (String) request.getParameter("idVente");
+            ArrayList<Cheval> lesChevaux = VenteDAO.getLesChevaux(connection,idVente);
+            System.out.println("nb chevaux " + lesChevaux.size() );
+            request.setAttribute("pLesChevaux", lesChevaux);
+            getServletContext().getRequestDispatcher("/vues/ventes/listerLesChevaux.jsp").forward(request, response);
+        }
         
         if(url.equals("/JAVABIEN/ServletCheval/chevalAjouter"))
         {  
@@ -111,7 +120,15 @@ public class ServletCheval extends HttpServlet {
             
             getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp").forward(request, response);
         }
-        
+       
+       if(url.equals("/JAVABIEN/ServletCheval/listerToutLesChevaux"))
+        {  
+            String idCheval = (String) request.getParameter("idCheval");
+            ArrayList<Cheval> lesChevaux = ChevalDAO.getLesChevaux(connection);
+            System.out.println("nb chevaux " + lesChevaux.size() );
+            request.setAttribute("pLesChevaux", lesChevaux);
+            getServletContext().getRequestDispatcher("/vues/cheval/listerToutLesChevaux.jsp").forward(request, response);
+        }
        
         
         
