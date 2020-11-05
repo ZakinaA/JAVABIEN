@@ -24,23 +24,9 @@
         <table class="table table-bordered table-striped table-condensed">
             <tr><td>NOM :</td><td><% out.println(unCheval.getNom());%></td></tr>
             <tr><td>SEXE :</td><td><%  out.println(unCheval.getSexe());%></td>  </tr>
-<<<<<<< HEAD
-            <tr><td>PRIXDEDEPART  :</td><td><%  out.println(unCheval.getPrixDepart());%></td>  </tr>
-           
-            <tr><td>SIRE  :</td><td><%  out.println(unCheval.getSire());%></td>  </tr>
-            <tr><td>TYPEDECHEVAL  :</td><td><%  out.println(unCheval.getUnTypeChev());%></td>  </tr>
-            <tr><td> Catégories selectionnées</td><td>
-=======
             <tr><td>PRIX DE DEPART  :</td><td><%  out.println(unCheval.getPrixDepart());%></td>  </tr>
-            <tr><td>VENDEUR  :</td><td><%  out.println(unCheval.getVendeur());%></td>  </tr>
-          <tr><td>PROPRIETAIRE  :</td><td><%  out.println(unCheval.getProprietaire());%></td>  </tr>
-          <tr><td>SIRE  :</td><td><%  out.println(unCheval.getSire());%></td>  </tr>
-          <tr><td>TYPE DE CHEVAL  :</td><td><%  out.println(unCheval.getUnTypeChev());%></td>  </tr>
-         <tr><td>NOM DES CLIENTS  :</td><td><%  //out.println(unCheval.getUnClient());%></td>  </tr>
-          <tr><td> Catégories selectionnées</td><td>
->>>>>>> 20dd5599578ef8266db7441ff9e11fd2c16a8472
-                  
-         
+            <tr><td>SIRE  :</td><td><%  out.println(unCheval.getSire());%></td>  </tr>
+            <tr><td>TYPE DE CHEVAL  :</td><td><%  out.println(unCheval.getUnTypeChev().getId());%></td>  </tr>
               </td></tr>
         </table>
         </div>

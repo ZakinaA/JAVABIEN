@@ -16,9 +16,11 @@
     </head>
     <body>
         <%@ include file="menu.html"%>
+
         <div class="container">
     <center>
         <h1><u>Ajout d'une vente</u></h1><br>
+
         
          <%
                 

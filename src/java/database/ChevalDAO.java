@@ -79,35 +79,58 @@ public class ChevalDAO {
             // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
             // supprimer ce paramètre en cas de requête sans auto_increment.
 
-            requete=connection.prepareStatement("INSERT INTO CHEVAL (nom, sexe, prixDepart,SIRE, id_typeChev, id_Client)\n" + "VALUES (?,?,?,?,?,?)");
+            requete=connection.prepareStatement("INSERT INTO cheval (nom, sexe, prixDepart,SIRE, id_typeChev)\n" + "VALUES (?,?,?,?,?)");
             requete.setString(1, unCheval.getNom());
             requete.setString(2, unCheval.getSexe());
             requete.setInt(3, unCheval.getPrixDepart());
             requete.setString(4, unCheval.getSire());
             requete.setInt(5, unCheval.getUnTypeChev().getId());
-            requete.setInt(6, unCheval.getUnClient().getId());
 
-
-
-           /* Exécution de la requête */
-            requete.executeUpdate();
-            
-             // Récupération de id auto-généré par la bdd dans la table client
+            System.out.println("REQUETE " + requete);
+            int resultatRequete = requete.executeUpdate();
+            if (resultatRequete == 1){
             rs = requete.getGeneratedKeys();
             while ( rs.next() ) {
                 idGenere = rs.getInt( 1 );
                 unCheval.setId(idGenere);
+            }   
+            unCheval = getrecupcheval(connection, unCheval.getId());
             }
-            
-            // ajout des enregistrement dans la table clientcategvente
-            //for (int i=0;i<unCheval.getLesCategVentes().size();i++){
-             //   PreparedStatement requete2=connection.prepareStatement("INSERT INTO clientcategvente (codeClient, codeCategVente )\n" +
-             //       "VALUES (?,?)");
-             //    requete2.setInt(1, unClient.getId());
-             //    requete2.setString(2, unClient.getLesCategVentes().get(i).getCode());
-             //    requete2.executeUpdate();
-        //    }
-  
+            else{
+                unCheval = null;
+            }
+        }
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+            unCheval=null;
+        }    
+        return unCheval ;    
+    }
+    
+    
+     public static Cheval getrecupcheval(Connection connection, int idGenere){      
+        Cheval unCheval = new Cheval();
+        try
+        {
+            requete=connection.prepareStatement("select cheval.id, cheval.nom, cheval.sexe, cheval.sire,cheval.prixDepart typecheval.libelle from cheval, typecheval where typecheval.id=cheval.id_typeChev and cheval.id = ? ");
+            requete.setInt(1, idGenere);
+            rs=requete.executeQuery();
+           // System.out.println("reqqqq  " +  requete);
+           while (rs.next() ){
+               unCheval.setNom(rs.getString("nom"));
+               unCheval.setSexe(rs.getString("sexe"));
+               unCheval.setPrixDepart(rs.getInt("prixDepart"));
+               unCheval.setSire(rs.getString("sire"));
+               
+               TypeCheval unTypeCheval = new TypeCheval(); 
+               unTypeCheval.setLibelle(rs.getString("libelle"));
+               unCheval.setUnTypeChev(unTypeCheval);
+           }    
+           /* Exécution de la requête */
+            requete.executeUpdate();
+             
         }   
         catch (SQLException e) 
         {
@@ -116,7 +139,7 @@ public class ChevalDAO {
         }
         return unCheval ;    
     }
-    
+     
     public static ArrayList<Client>  getLesClients(Connection connection){      {      
         ArrayList<Client> LesClients = new  ArrayList<Client>();
         try

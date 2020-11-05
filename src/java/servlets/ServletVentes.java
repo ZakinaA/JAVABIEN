@@ -187,9 +187,6 @@ public class ServletVentes extends HttpServlet {
         }
     }
     
-
-    
-    
     @Override
     public String getServletInfo() {
         return "Short description";

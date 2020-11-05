@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN/src/java/database/ClientDAO.java</file>
+=======
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/chevalAjouter.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/ventes/listerLesChevaux.jsp</file>
+>>>>>>> 5b5b9401210f69a531f7905b25b2c9b094aef168
         </group>
     </open-files>
 </project-private>

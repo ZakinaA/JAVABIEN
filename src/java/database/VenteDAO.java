@@ -201,20 +201,11 @@ public class VenteDAO {
             requete.setString(2, uneVente.getDateDebutVente());
             requete.setString(3, uneVente.getUneCategVente().getCode());
             requete.setInt(4, uneVente.getUnLieu().getId());
-           
-
             System.out.println("REQUETE " + requete);
            /* Exécution de la requête */
             int resultatRequete = requete.executeUpdate();
-                
-            
             if (resultatRequete == 1){
             rs = requete.getGeneratedKeys();
-            
-            
-            
-             // Récupération de id auto-généré par la bdd dans la table client
-
             while ( rs.next() ) {
                 idGenere = rs.getInt( 1 );
                 uneVente.setId(idGenere);
@@ -225,19 +216,15 @@ public class VenteDAO {
                 uneVente = null;
             }
         }
-        
         catch (SQLException e) 
         {
             e.printStackTrace();
             //out.println("Erreur lors de l’établissement de la connexion");
             uneVente=null;
-        }
-        
-        
-        
-       
+        }    
         return uneVente ;    
     }
+    
     public static Vente getrecupvente(Connection connection, int idGenere){      
         Vente uneVente = new Vente();
         try
