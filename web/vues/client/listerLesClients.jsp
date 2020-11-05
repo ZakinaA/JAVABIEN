@@ -36,7 +36,6 @@
                     <th>Code postal</th>
                     <th>Ville</th>
                     <th>E-mail</th>
-                    <th>Pays</th>
 
             <br>
             <br>
@@ -76,10 +75,7 @@
                         out.println("<td>");
                         out.println(unClient.getMail());
                         out.println("</td>");
-                        
-                        out.println("<td>");
-                        out.println(unClient.getUnPays().getNom());
-                        out.println("</td>");       
+                             
                     }
                     %>
                 </tr>

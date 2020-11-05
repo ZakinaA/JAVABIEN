@@ -53,9 +53,9 @@ public class ServletClient extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        /*response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            /* TODO output your page here. You may use following sample code. *//*
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -65,10 +65,10 @@ public class ServletClient extends HttpServlet {
             out.println("<h1>Servlet ServletClient at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
+        }*/
     }
  
-    
+
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -85,6 +85,7 @@ public class ServletClient extends HttpServlet {
        
         
        String url = request.getRequestURI();
+       System.out.println("DO GET SVT CLIENT" + url);
        
        if(url.equals("/JAVABIEN/ServletClient/ajouterClient"))
         {                   
@@ -92,13 +93,15 @@ public class ServletClient extends HttpServlet {
             request.setAttribute("pLesPays", lesPays);
             
             ArrayList<CategVente> lesCategVentes = CategVenteDAO.getLesCategVentes(connection);
-            request.setAttribute("pLesCategVente", lesCategVentes);
+           request.setAttribute("pLesCategVente", lesCategVentes);
             this.getServletContext().getRequestDispatcher("/vues/clientAjouter.jsp" ).forward( request, response );
         }
        
        if(url.equals("/JAVABIEN/ServletClient/listerLesClients"))
-        {  
+        {   
+           System.out.println("LISTERCLIENTS");
             ArrayList<Client> lesClients = ClientDAO.getLesClientsTotal(connection);
+            System.out.println("NB CLIENTS" + lesClients.size());
             request.setAttribute("pLesClients", lesClients);
             getServletContext().getRequestDispatcher("/vues/client/listerLesClients.jsp").forward(request, response);
         }

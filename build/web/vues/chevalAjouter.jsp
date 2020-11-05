@@ -15,16 +15,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Ajouter un cheval</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <title>Cheval ajouter</title>
     </head>
     <body>
-
-        <h1>AJOUTER CHEVAL</h1>
-
-        <br><h3><u>Ajouter un cheval</u></h3><br>
-
         <%@ include file="menu.html"%>
         <div class="container">
     <center>
@@ -51,13 +46,6 @@
                 <input class="form-control" id="prixDepart"  type="number"  name="prixDepart" size="30" maxlength="10">
                  </br>
 
-                               
-                
-<<<<<<< HEAD
-                
-                
-            
-=======
                 <label for="vendeur">Vendeur : </label>
                 <input class="form-control" id="vendeur"  type="text"  name="vendeur" size="30" maxlength="50">
                 </br>
@@ -65,11 +53,7 @@
                 <label for="proprietaire">Propriétaire : </label>
                 <input class="form-control" id="proprietaire"  type="text"  name="proprietaire" size="30" maxlength="50">
                 </br>
-<<<<<<< HEAD
->>>>>>> 44a5752f2895d63955d4cfd8b06511f1f9f18ede
-=======
 
->>>>>>> 20dd5599578ef8266db7441ff9e11fd2c16a8472
                 
                 <label for="SIRE">SIRE : </label>
                 <input class="form-control" id="SIRE"  type="text"  name="SIRE" size="30" maxlength="50">
