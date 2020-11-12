@@ -39,8 +39,17 @@
     <servlet>
         <servlet-name>ServletEnchere</servlet-name>
         <servlet-class>servlets.ServletEnchere</servlet-class>
+
     </servlet>
-    <servlet>
+   
+        
+        <servlet>
+        <servlet-name>ServletLieu</servlet-name>
+        <servlet-class>servlets.ServletLieu</servlet-class>
+       </servlet>
+        
+       <servlet>
+
         <servlet-name>ServletConnexion</servlet-name>
         <servlet-class>servlets.ServletConnexion</servlet-class>
     </servlet>
@@ -95,6 +104,10 @@
     <servlet-mapping>
         <servlet-name>ServletCheval</servlet-name>
         <url-pattern>/ServletCheval/chevalAjouter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLieu</servlet-name>
+        <url-pattern>/ServletLieu/listerLesLieux</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
