@@ -20,7 +20,7 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-        <u><h1>Liste des lots</h1></u>
+                <center><h1>Liste des lots</h1></center>
 
          <%
         ArrayList<Lot> lesLots = (ArrayList)request.getAttribute("pLesLots");
@@ -50,7 +50,7 @@
 
                         out.println("<td>");
                         out.println(unLot.getPrixDepart());
-                        out.println("</td>");
+                        out.println("€</td>");
 
                         out.println("<td>");
                         out.println(unLot.getUnCheval().getId());

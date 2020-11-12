@@ -20,7 +20,8 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-        <u><h1>Liste des chevaux</h1></u>
+                <center><u><h1>Liste des chevaux</h1></u>
+                <img src="../vues/image/cheval.png" class="img-fluid" alt="Responsive image" width="20%" height="20%" ></center>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>

@@ -23,7 +23,7 @@
         <%@ include file="menu.html"%>
         <div class="container">
     <center>
-        <h1><u>Ajout d'un cheval</u></h1><br>
+        <h1><u>Nouveau cheval</u></h1><br>
 
 
          <%
@@ -65,7 +65,7 @@
             
                  
                 
-            <input type="submit" name="valider" id="valider" value="Valider"/>
+            <input type="submit" name="valider" id="valider" value="Ajouter"/>
             </form>
     </center>
         </div>

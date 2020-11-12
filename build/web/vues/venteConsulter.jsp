@@ -13,7 +13,7 @@
     <body>
         <%@ include file="menu.html"%>
         <div class="container">
-        <h1>Infos Vente</h1>
+        <h1>Information de la vente</h1>
         
          <%
         Vente uneVente = (Vente)request.getAttribute("pVente");

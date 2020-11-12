@@ -32,7 +32,7 @@
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Rue</th>  
+                    <th>Adresse</th>  
                     <th>Code postal</th>
                     <th>Ville</th>
                     <th>E-mail</th>
