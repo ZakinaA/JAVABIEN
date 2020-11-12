@@ -19,7 +19,7 @@
         <%@ include file="menu.html"%>
         <div class="container">
     <center>
-        <h1><u>Ajout d'un client</u></h1><br>
+        <h1><u>Nouveau client</u></h1><br>
         
          <%
                 //Client client=(Client)request.getAttribute("client");
@@ -27,15 +27,15 @@
             %>
         
         <form class="form-group" action="ajouterClient" method="POST">
-                <label for="nom">NOM : </label>
+                <label for="nom">Nom : </label>
                 <input class="form-control" id="nom" type="text" name="nom"  size="30" maxlength="30">
                 </br>
                 
-                <label for="prenom">PRENOM : </label>
+                <label for="prenom">Prénom : </label>
                 <input class="form-control" id="prenom"  type="text"  name="prenom" size="30" maxlength="30">      
                  </br>
                 
-                <label for="rue">rue : </label>
+                <label for="rue">Adresse : </label>
                 <input class="form-control" id="rue"  type="text"  name="rue" size="30" maxlength="50">
                  </br>
                                
@@ -92,7 +92,7 @@
                     --%>
                  
                 
-            <input type="submit" name="valider" id="valider" value="Valider"/>
+            <input type="submit" name="valider" id="valider" value="Ajouter"/>
             </form>
     </center>
         </div>

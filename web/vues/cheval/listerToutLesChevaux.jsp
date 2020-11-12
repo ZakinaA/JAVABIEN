@@ -20,7 +20,9 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-        <u><h1>Liste de tous les chevaux</h1></u>
+                <center><h1>Liste des chevaux</h1>
+                <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
+                <img src="../vues/image/cheval.png" class="img-fluid" alt="Responsive image" width="20%" height="20%" ></center>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>
@@ -30,6 +32,7 @@
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Race</th>
+                    <th></th>
                     
  
             <br>

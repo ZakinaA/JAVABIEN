@@ -63,7 +63,30 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+</div>
 
+
+
+
+<br><br>
+<center>
+
+
+<div class="card-group">
+  <div class="card">
+    <img src="vues/image/route.jpg" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Bien-être</h5>
+      <p class="card-text">Élevage dans un cadre naturel, au petit soin pour l'être animal est l'une de priorité.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="vues/image/arbre.jpg" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Loisirs</h5>
+      <p class="card-text">Un avantage, une diversité d'activités disponibles pour vos chevaux, des entraînement et promenades régulières.</p>
+    </div>
+  </div>
 
 
 

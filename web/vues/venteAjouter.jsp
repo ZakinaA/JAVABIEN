@@ -19,7 +19,7 @@
 
         <div class="container">
     <center>
-        <h1><u>Ajout d'une vente</u></h1><br>
+        <h1><u>Nouvelle vente</u></h1><br>
 
         
          <%
@@ -65,7 +65,7 @@
                 
                               
                 
-            <input type="submit" name="valider" id="valider" value="Valider"/>
+            <input type="submit" name="valider" id="valider" value="Ajouter"/>
             </form>
         
     </body>

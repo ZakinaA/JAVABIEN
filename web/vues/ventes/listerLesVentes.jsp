@@ -20,9 +20,8 @@
             <%@ include file="../menu/menu.html"%>
             <div class="container">
             <center><h1>Liste des ventes</h1>
-                <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
-                        <h4><a href="../ServletVentes/venteAjouter">Ajouter une vente</a></h4></center>
-        <img src="../vues/image/vente.png" class="img-fluid" alt="Responsive image">
+                <h4><a href="../ServletVentes/venteAjouter">Ajouter une vente</a></h4></center>
+            <img src="../vues/image/vente.png" class="img-fluid" alt="Responsive image">
 
          <%
         ArrayList<Vente> lesVentes = (ArrayList)request.getAttribute("pLesVentes");
@@ -31,16 +30,17 @@
             <thead>             
                          
                 <tr>             
-                    <th>id</th>
-                    <th>nom</th>
-                    <th>date début</th>
-                    <th>catégorie</th>  
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Début</th>
+                    <th>Catégorie</th>  
                     <th>Ville</th>
-                    <th>NbBoxes(dev)</th>
-                    <th>Clients interessés</th>
-                    <th>Lister les Courriels</th>
-                    <th>Lister les Chevaux </th>
-                    <th>Historique des Enchères</th>
+                    <th>Nombre boxes</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+
             <br>
             <br>
                 </tr> 
