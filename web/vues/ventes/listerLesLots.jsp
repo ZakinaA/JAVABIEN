@@ -21,6 +21,7 @@
             <%@ include file="../menu/menu.html"%>
             <div class="container">
         <u><h1>Liste des lots</h1></u>
+
          <%
         ArrayList<Lot> lesLots = (ArrayList)request.getAttribute("pLesLots");
         %>

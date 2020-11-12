@@ -98,32 +98,58 @@ public class LotDAO {Connection connection=null;
             // id (clé primaire de la table client) est en auto_increment,donc on ne renseigne pas cette valeur
             // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
             // supprimer ce paramètre en cas de requête sans auto_increment.
-            requete=connection.prepareStatement("INSERT INTO Lot (id, prixDepart, idCheval, idVente)\n" + "VALUES (?,?,?,?)");
-            requete.setInt(1, unLot.getId());
-            requete.setInt(2, unLot.getPrixDepart());
-            //requete.setInt(3, unLot.getIdCheval());
-            //requete.setString(6, unLot.getIdVente());
-           
+            requete=connection.prepareStatement("INSERT INTO lot (id, prixDepart, idCheval, idVente)\n" + "VALUES (?,?,?)");
 
-           /* Exécution de la requête */
-            requete.executeUpdate();
-            
-             // Récupération de id auto-généré par la bdd dans la table client
+            requete.setInt(1, unLot.getPrixDepart());
+            requete.setString(2,unLot.getUnCheval().getNom());
+            requete.setString(3, unLot.getUneVente().getNom());
+           
+            System.out.println("REQUETE " + requete);
+            int resultatRequete = requete.executeUpdate();
+            if (resultatRequete == 1){
             rs = requete.getGeneratedKeys();
             while ( rs.next() ) {
                 idGenere = rs.getInt( 1 );
                 unLot.setId(idGenere);
+            }   
+            unLot = getrecupLot(connection, unLot.getId());
             }
-            
-            // ajout des enregistrement dans la table clientcategvente
-            //for (int i=0;i<unCheval.getLesCategVentes().size();i++){
-             //   PreparedStatement requete2=connection.prepareStatement("INSERT INTO clientcategvente (codeClient, codeCategVente )\n" +
-             //       "VALUES (?,?)");
-             //    requete2.setInt(1, unClient.getId());
-             //    requete2.setString(2, unClient.getLesCategVentes().get(i).getCode());
-             //    requete2.executeUpdate();
-        //    }
-            
+            else{
+                unLot = null;
+            }
+        }
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+            unLot=null;
+        }    
+        return unLot ;    
+    }
+    
+    public static Lot getrecupLot(Connection connection, int idGenere){      
+        Lot unLot = new Lot();
+        try
+        {
+            requete=connection.prepareStatement("select lot.id, lot.prixDepart, cheval.id, vente.id from lot , cheval,vente where lot.idCheval=cheval.id and vente.id = lot.idVente and lot.id = ? ");
+            requete.setInt(1, idGenere);
+            rs=requete.executeQuery();
+           // System.out.println("reqqqq  " +  requete);
+           while (rs.next() ){
+
+               unLot.setPrixDepart(rs.getInt("prixDepart"));
+               
+               Cheval unCheval = new Cheval(); 
+               unCheval.setId(rs.getInt("idcheval"));
+               unLot.setUnCheval(unCheval);
+               
+               Vente uneVente = new Vente(); 
+               uneVente.setId(rs.getInt("idvente"));
+               unLot.setUneVente(uneVente);
+           }    
+           /* Exécution de la requête */
+            requete.executeUpdate();
+             
         }   
         catch (SQLException e) 
         {
@@ -132,6 +158,8 @@ public class LotDAO {Connection connection=null;
         }
         return unLot ;    
     }
+    
+    
 }
     
 
