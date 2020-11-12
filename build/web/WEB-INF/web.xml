@@ -88,6 +88,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletCheval</servlet-name>
+        <url-pattern>/ServletCheval/listerToutLesChevaux</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCheval</servlet-name>
         <url-pattern>/ServletCheval/chevalAjouter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -102,12 +106,14 @@
 
         <servlet-name>ServletEnchere</servlet-name>
         <url-pattern>/ServletEnchere/listerLesEncheres</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
+
+ </servlet-mapping>
+    <servlet-mapping>
+
         <servlet-name>ServletConnexion</servlet-name>
         <url-pattern>/ServletConnexion</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
+ </servlet-mapping>
+ <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin/listerLesCategories</url-pattern>
 </servlet-mapping>
