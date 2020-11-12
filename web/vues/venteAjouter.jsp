@@ -23,7 +23,6 @@
 
         
          <%
-                
                 VenteForm form = (VenteForm)request.getAttribute("form");
             %>
         

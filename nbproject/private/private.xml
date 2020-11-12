@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/JAVABIEN/src/java/database/ClientDAO.java</file>
-=======
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/src/java/database/ChevalDAO.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/src/java/formulaires/ChevalForm.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/chevalConsulter.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/clientAjouter.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/src/java/formulaires/VenteForm.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/src/java/servlets/ServletCheval.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/src/java/servlets/ServletVentes.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/src/java/database/VenteDAO.java</file>
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/chevalAjouter.jsp</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/ventes/listerLesChevaux.jsp</file>
->>>>>>> 5b5b9401210f69a531f7905b25b2c9b094aef168
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/venteAjouter.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/projet/JAVABIEN/web/vues/venteConsulter.jsp</file>
         </group>
     </open-files>
 </project-private>

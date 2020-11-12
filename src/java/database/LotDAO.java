@@ -9,9 +9,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Cheval;
 import modele.Lot;
-import modele.TypeCheval;
+import modele.Vente;
 
 /**
  *
@@ -26,7 +27,7 @@ public class LotDAO {Connection connection=null;
         try
         {
             //preparation de la requete     
-            requete=connection.prepareStatement("SELECT Lot.* FROM cheval WHERE Lot.id = ?");
+            requete=connection.prepareStatement("SELECT Lot.* FROM lot WHERE Lot.id = ?");
         
             //executer la requete
             
@@ -54,7 +55,40 @@ public class LotDAO {Connection connection=null;
         }
         return unLot;    
     } 
-    
+        public static ArrayList<Lot> getLesLots(Connection connection){      
+        ArrayList<Lot> lesLots = new  ArrayList<Lot>();
+        try
+        {
+            //preparation de la requete     
+            requete=connection.prepareStatement("SELECT lot.* FROM lot, cheval , vente where lot.idcheval =cheval.id and lot.idvente = vente.id order by id");           
+            rs=requete.executeQuery();
+
+            //On hydrate l'objet métier Client avec les résultats de la requête
+            while ( rs.next()) {  
+                Lot unLot = new Lot();
+                unLot.setId(rs.getInt("id"));
+                unLot.setPrixDepart(rs.getInt("prixDepart"));
+                
+                Cheval unCheval = new Cheval();
+                unCheval.setId(rs.getInt("id"));
+                unLot.setUnCheval(unCheval);
+                                
+                Vente uneVente = new Vente();
+                uneVente.setId(rs.getInt("id"));
+                unLot.setUneVente(uneVente);
+                
+             lesLots.add(unLot);
+                
+            }
+        }   
+        
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+        }
+        return lesLots;    
+    } 
     
     public static Lot ajouterLot(Connection connection, Lot unLot){      
         int idGenere = -1;

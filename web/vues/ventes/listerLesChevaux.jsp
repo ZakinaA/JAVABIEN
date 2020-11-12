@@ -32,7 +32,6 @@
                     <th>Vendeur</th>
                     <th>Race</th>
                     
- 
             <br>
             <br>
                 </tr>
