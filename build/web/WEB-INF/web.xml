@@ -17,11 +17,9 @@
         <param-value>mpJavabien</param-value>
     </context-param>
     <!--  écouteurs -->
-    
     <listener>
         <listener-class>database.InitConnexion</listener-class>
     </listener>
-    
     <servlet>
         <servlet-name>ServletVentes</servlet-name>
         <servlet-class>servlets.ServletVentes</servlet-class>
@@ -41,10 +39,23 @@
     <servlet>
         <servlet-name>ServletEnchere</servlet-name>
         <servlet-class>servlets.ServletEnchere</servlet-class>
+
     </servlet>
-    <servlet>
+   
+        
+        <servlet>
+        <servlet-name>ServletLieu</servlet-name>
+        <servlet-class>servlets.ServletLieu</servlet-class>
+       </servlet>
+        
+       <servlet>
+
         <servlet-name>ServletConnexion</servlet-name>
         <servlet-class>servlets.ServletConnexion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletLot</servlet-name>
+        <servlet-class>servlets.ServletLot</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletVentes</servlet-name>
@@ -62,7 +73,7 @@
         <servlet-name>ServletVentes</servlet-name>
         <url-pattern>/ServletVentes/venteAjouter</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ServletClient</servlet-name>
         <url-pattern>/ServletClient/ajouterClient</url-pattern>
     </servlet-mapping>
@@ -95,6 +106,10 @@
         <url-pattern>/ServletCheval/chevalAjouter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ServletLieu</servlet-name>
+        <url-pattern>/ServletLieu/listerLesLieux</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin</url-pattern>
     </servlet-mapping>
@@ -103,23 +118,27 @@
         <url-pattern>/ServletAdmin/categorieAjouter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>ServletEnchere</servlet-name>
         <url-pattern>/ServletEnchere/listerLesEncheres</url-pattern>
 
- </servlet-mapping>
+    </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>ServletConnexion</servlet-name>
         <url-pattern>/ServletConnexion</url-pattern>
- </servlet-mapping>
+    </servlet-mapping>
+
  <servlet-mapping>
         <servlet-name>ServletAdmin</servlet-name>
         <url-pattern>/ServletAdmin/listerLesCategories</url-pattern>
-</servlet-mapping>
-
-
-
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLot</servlet-name>
+        <url-pattern>/ServletLot</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ServletLot</servlet-name>
+        <url-pattern>/ServletLot/listerLesLots</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -134,10 +134,6 @@ public class Cheval {
         this.unClient = unClient;
     }
     
-    
-    
-    
-
     public TypeCheval getUnTypeChev() {
         return unTypeChev;
     }

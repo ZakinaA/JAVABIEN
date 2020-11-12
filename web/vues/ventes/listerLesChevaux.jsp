@@ -32,7 +32,6 @@
                     <th>Nom</th>
                     <th>Race</th>
                     
- 
             <br>
             <br>
                 </tr>
