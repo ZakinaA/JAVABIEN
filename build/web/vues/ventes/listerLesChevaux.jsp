@@ -29,7 +29,6 @@
                 <tr>             
                     <th>Id</th>
                     <th>Nom</th>
-                    <th>Vendeur</th>
                     <th>Race</th>
                     
             <br>
@@ -50,10 +49,6 @@
                        out.println("<td>");
                        out.println(unCheval.getNom());
                        out.println("</td>");
-
-                        out.println("<td>");
-                        out.println(unCheval.getVendeur());
-                        out.println("</td>");
                         
                         out.println("<td>");
                         out.println(unCheval.getUnTypeChev().getLibelle());
