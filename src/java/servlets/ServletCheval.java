@@ -114,10 +114,6 @@ public class ServletCheval extends HttpServlet {
             System.out.println ("les types " + lesTypesChev.size());
             request.setAttribute("pLesTypesChev", lesTypesChev);
             
-            ArrayList<Client> lesClients = ChevalDAO.getLesClients(connection);
-            System.out.println ("lesclients" + lesClients.size());
-            request.setAttribute("pLesClients", lesClients);
-            
             getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp").forward(request, response);
         }
        
@@ -160,17 +156,13 @@ public class ServletCheval extends HttpServlet {
 		
         if (form.getErreurs().isEmpty()){
             // Il n'y a pas eu d'erreurs de saisie, donc on renvoie la vue affichant les infos du client 
-            ChevalDAO.ajouterCheval(connection, unCheval);
+            Cheval unCheval2 = ChevalDAO.ajouterCheval(connection, unCheval);
+            System.out.println("cheval : " + unCheval2);
             this.getServletContext().getRequestDispatcher("/vues/chevalConsulter.jsp" ).forward( request, response );
         }
         else
         { 
-		// il y a des erreurs. On réaffiche le formulaire avec des messages d'erreurs
-            //ArrayList<TypeCheval> lesTypesCheval = TypeChevalDAO.getLesTypesChev(connection);
-            //request.setAttribute("pLesTypesChev", lesPays);
-            
-            //ArrayList<CategVente> lesCategVentes = CategVenteDAO.getLesCategVentes(connection);
-            //request.setAttribute("pLesCategVente", lesCategVentes);
+	
            this.getServletContext().getRequestDispatcher("/vues/chevalAjouter.jsp" ).forward( request, response );
         }
     
