@@ -23,6 +23,7 @@
         <%@ include file="menu.html"%>
         <div class="container">
     <center>
+                <br><div class="alert alert-dark" role="alert">
         <h1><u>Nouveau cheval</u></h1><br>
 
 
@@ -65,7 +66,8 @@
             
                  
                 
-            <input type="submit" name="valider" id="valider" value="Ajouter"/>
+            <input class="btn btn-dark" type="submit" name="valider" id="valider" value="Ajouter"/>
+                </div>
             </form>
     </center>
         </div>
