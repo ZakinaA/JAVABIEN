@@ -35,7 +35,6 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th></th>
 
             <br>
             <br>
@@ -83,10 +82,6 @@
                         
                         out.println("<td><a href ='../ServletVentes/listerLesChevaux?idVente="+ uneVente.getId()+ "'>");
                         out.println("<button type='button' class='btn btn-secondary'>Chevaux</button>");
-                        out.println("</td>");
-                        
-                        out.println("<td><a href ='../ServletVentes/listerLesEncheres?idVente="+ uneVente.getId()+ "'>");
-                        out.println("<button type='button' class='btn btn-secondary'>Plus</button>");
                         out.println("</td>");
                         
                                
