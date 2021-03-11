@@ -20,18 +20,17 @@
          
              <%@ include file="../menu/menu.html"%>
              <div class="container">
-             <center><u><h1>Liste des courriels interessés</h1></u>
-        <img src="../vues/image/mail.png" class="img-fluid" alt="Responsive image" width="50%">
+                 <br><center><u><h1>Liste des courriels interessés</h1></u>
          <%
         ArrayList<Courriel> lesCourriels = (ArrayList)request.getAttribute("pLesCourriels");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="5">  
+        <table  class="table">  
             <thead>
                 <tr align="center">             
-                    <th>id</th>
-                    <th>date</th>
-                    <th>objet</th>
-                    <th>corps</th>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Objet</th>
+                    <th>Corps</th>
  
             <br>
             <br>

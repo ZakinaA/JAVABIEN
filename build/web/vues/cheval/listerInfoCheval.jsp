@@ -11,53 +11,40 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-        
+    
         <title>Information du cheval</title>
     </head>
     <body>
         <%@ include file="../menu/menu.html"%>
          <div class="container">
-        <u><h1>Information du cheval</h1></u>
+             <br><center><u><h1>Information du cheval</h1></u></center><br>
          <%
        Cheval unCheval = (Cheval)request.getAttribute("pUnCheval");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="0">  
-            
-                <tr>           
-                    <td><img><%out.println(unCheval.getNom());%></h2></tr>
-                    <!--<td><img src="../vues/image/cheval.jpg"/></tr>-->
-            
-                    <td><img src="<%out.println(unCheval.getChemin_image());%>" height="200" width="250"></tr>
-                            
-                    <td><strong><u>Id:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getId());%></tr>                  
-                    <td><strong><u>Sexe:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getSexe());%></tr>
-                   
-                    <td><strong><u>Valeur:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getPrixDepart());%>€</tr>                       
+
         
-  
-                    <td><strong><u>SIRE:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getSire());%></tr>
-                    <td><strong><u>Race:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getUnTypeChev().getLibelle());%></tr>
-                    
-                        <td><strong><u>Mère:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getMere());%></tr>
-                    
-                   <!-- <td><strong><u>Mère:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getMere());%></tr>-->
-                    <td><strong><u>Père:</u>&nbsp;&nbsp;</strong><%out.println(unCheval.getPere());%></tr>
-           
-                </tr>
-                       
-            <tbody>
-            
-            
-            </tbody>
-        </table>
-        
-         </div>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+        <img class="img-fluid" src="<%out.println(unCheval.getChemin_image());%>" height="100%" width="100%">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%out.println(unCheval.getId());%>- <%out.println(unCheval.getNom());%></h5>
+        <p class="card-text">Sexe : <%out.println(unCheval.getSexe());%></p>
+        <p class="card-text">Valeur : <%out.println(unCheval.getPrixDepart());%>€</p>
+        <p class="card-text">SIRE : <%out.println(unCheval.getSire());%></p>
+        <p class="card-text">Race : <%out.println(unCheval.getUnTypeChev().getLibelle());%></p>
+        <p class="card-text">Mère : <%out.println(unCheval.getMere());%> - Pére : <%out.println(unCheval.getPere());%></p>
+      </div>
+    </div>
+  </div>
+</div>      
+</div>
                       
-              <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-         
-    </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>      
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>    
+</body>
 </html>
 

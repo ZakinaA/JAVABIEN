@@ -18,16 +18,17 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-                <center><u><h1>Liste des chevaux</h1></u>
+                <br><center><h1><u>Liste des chevaux</u></h1>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>
-        <table  class="table">  
+        <table class="table">  
             <thead>
                 <tr align="center">             
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Race</th>
+                    <th><th>
                     
             <br>
             <br>
@@ -40,7 +41,7 @@
                     {
                         
                         Cheval unCheval = lesChevaux.get(i);
-                        out.println("<tr align='center'>");
+                        out.println("<tr align='center'><td>");
                         out.println(unCheval.getId());
                         out.println("</a></td>");
 
@@ -53,7 +54,7 @@
                         out.println("</td>");
                         
                         out.println("<td><a href ='../ServletCheval/listerInfoCheval?idCheval="+ unCheval.getId()+ "'>");
-                        out.println("Plus d'information");
+                        out.println("<button type='button' class='btn btn-secondary'>Plus d'information</button>");
                         out.println("</td>");
                         
       
