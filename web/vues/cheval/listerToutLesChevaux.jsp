@@ -28,7 +28,7 @@
         %>
         <table  class="table">  
             <thead>
-                <tr>             
+                <tr align="center">             
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Race</th>
@@ -44,7 +44,7 @@
                     {
                         
                         Cheval unCheval = lesChevaux.get(i);
-                        out.println("<tr><td>");
+                        out.println("<tr align='center'><td>");
                         out.println(unCheval.getId());
                         out.println("</a></td>");
 

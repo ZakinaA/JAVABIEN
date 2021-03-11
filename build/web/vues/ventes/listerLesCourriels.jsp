@@ -27,7 +27,7 @@
         %>
         <table  class="table table-bordered table-striped table-condensed"  border="5">  
             <thead>
-                <tr>             
+                <tr align="center">             
                     <th>id</th>
                     <th>date</th>
                     <th>objet</th>

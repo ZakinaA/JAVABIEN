@@ -27,7 +27,7 @@
         %>
         <table  class="table">  
             <thead>
-                <tr>             
+                <tr align="center">             
                     <th>Id</th>
                     <th>Ville</th>
                     <th>Nombre de boxes</th>
@@ -44,7 +44,7 @@
                     {
                         
                         Lieu unLieu = lesLieux.get(i);
-                        out.println("<tr><td>");
+                        out.println("<tr align='center'><td>");
                         out.println(unLieu.getId());
                         out.println("</a></td>");
 
