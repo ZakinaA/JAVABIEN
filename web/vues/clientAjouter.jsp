@@ -19,7 +19,8 @@
         <%@ include file="menu.html"%>
         <div class="container">
     <center>
-        <h1><u>Nouveau client</u></h1><br>
+        <br><div class="alert alert-dark" role="alert">
+            <h1><u>Nouveau client</u></h1><br>
         
          <%
                 //Client client=(Client)request.getAttribute("client");
@@ -92,7 +93,8 @@
                     --%>
                  
                 
-            <input type="submit" name="valider" id="valider" value="Ajouter"/>
+            <input class="btn btn-dark" type="submit" name="valider" value="Ajouter"/>
+        </div>
             </form>
     </center>
         </div>
