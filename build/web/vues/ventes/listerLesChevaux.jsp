@@ -11,23 +11,20 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-        
-        
-        <title>Liste des chevaux</title>
+ 
+        <title>Chevaux</title>
     </head>
     <body>
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
                 <center><u><h1>Liste des chevaux</h1></u>
-                <img src="../vues/image/cheval.png" class="img-fluid" alt="Responsive image" width="20%" height="20%" ></center>
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="5">  
+        <table  class="table">  
             <thead>
-                <tr>             
+                <tr align="center">             
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Race</th>
@@ -43,7 +40,7 @@
                     {
                         
                         Cheval unCheval = lesChevaux.get(i);
-                        out.println("<tr align='center'><td>");
+                        out.println("<tr align='center'>");
                         out.println(unCheval.getId());
                         out.println("</a></td>");
 

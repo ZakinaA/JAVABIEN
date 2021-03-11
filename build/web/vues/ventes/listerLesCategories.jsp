@@ -20,16 +20,17 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-            <center><h1>Liste des catégories de ventes</h1>
-        <h4><a href="../ServletAdmin/categorieAjouter">Ajouter une catégorie de vente</a></h4></center>
-         <img src="../vues/image/categorie.png" class="img-fluid" alt="Responsive image">
+            <br>
+            <center><h1>Catégorie de vente</h1> 
+                <div class="d-grid gap-2">
+                    <a href="../ServletAdmin/categorieAjouter"><button class="btn btn-dark" type="button">Ajouter une catégorie</button></a>
+                </div>
          <%
         ArrayList<CategVente> lesCategVentes = (ArrayList)request.getAttribute("pLesCategVente");
         %>
-        <table  class="table table-bordered table-striped table-condensed" border="5">  
-            <thead>             
-                         
-                <tr>             
+        <table class="table">  
+            <thead>                     
+                <tr align="center">             
                     <th>Code</th>
                     <th>Libellé</th>
             <br>
@@ -43,7 +44,7 @@
                     {
                         
                         CategVente uneCategVente = lesCategVentes.get(i);
-                        out.println("<tr><td>");
+                        out.println("<tr align='center'><td>");
                         out.println(uneCategVente.getCode());
                         out.println("</a></td>");
 

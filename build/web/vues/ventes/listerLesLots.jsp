@@ -27,7 +27,7 @@
         %>
         <table  class="table table-bordered table-striped table-condensed"  border="5">  
             <thead>
-                <tr>             
+                <tr align="center">             
                     <th>Id</th>
                     <th>Prix de départ</th>
                     <th>Cheval</th>

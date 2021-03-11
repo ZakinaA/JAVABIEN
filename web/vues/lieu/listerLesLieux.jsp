@@ -14,17 +14,18 @@
 
         
         
-        <title>Liste de tous les lieux</title>
+        <title>Lieux de vente</title>
     </head>
     <body>
         
             <%@ include file="../menu/menu.html"%>
-            <div class="container">
-                <center><h1>Liste des lieux</h1></center>
+            <center><div class="container">
+                <br><h1>Liste des lieux</h1>
+                <button type="button" class="btn btn-secondary" disabled>Ajouter un lieu</button>
          <%
         ArrayList<Lieu> lesLieux = (ArrayList)request.getAttribute("pLesLieux");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="5">  
+        <table  class="table">  
             <thead>
                 <tr>             
                     <th>Id</th>
@@ -43,7 +44,7 @@
                     {
                         
                         Lieu unLieu = lesLieux.get(i);
-                        out.println("<tr align='center'><td>");
+                        out.println("<tr><td>");
                         out.println(unLieu.getId());
                         out.println("</a></td>");
 
@@ -67,6 +68,8 @@
         </table>
         
         </div>
+            </center>
+    
                 
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

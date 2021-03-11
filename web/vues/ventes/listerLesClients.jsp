@@ -19,15 +19,13 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-            <center><u><h1>Liste des clients interessés</h1></u>
-        <img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"><img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"></center>
-    
+                <br><center><u><h1>Clients interessés par la vente</h1></u>
          <%
         ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="5">  
+        <table  class="table">  
             <thead>
-                <tr>             
+                <tr align="center">             
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Prénom</th>

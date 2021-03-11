@@ -19,13 +19,12 @@
         <%@ include file="../menu/menu.html"%>
         <div class="container">
             
-            <center><h1>Liste des clients</h1>
-                <h4><a href="../ServletClient/ajouterClient">Ajouter un client</a></h4>
-        <img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"><img src="../vues/image/client.png" class="img-fluid" alt="Responsive image" width="50%"></center>
-         <%
+            <br><center><h1>Liste des clients</h1>
+                <a href="../ServletClient/ajouterClient"><button class="btn btn-dark" type="button">Ajouter un client</button></a>
+             <%    
         ArrayList<Client> lesClients = (ArrayList)request.getAttribute("pLesClients");
         %>
-        <table  class="table table-bordered table-striped table-condensed" border="5">  
+        <table  class="table">  
             <thead>             
                          
                 <tr>             

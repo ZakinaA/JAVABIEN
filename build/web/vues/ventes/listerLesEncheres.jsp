@@ -21,9 +21,9 @@
        Enchere uneEnchere = (Enchere)request.getAttribute("pUneEnchere");
         %>
         
-        <table  class="table table-bordered table-striped table-condensed"  border="0">  
+        <table  class="table">  
             <thead>
-                <tr>                 
+                <tr align="center">                 
                     <td><img><%out.println(uneEnchere.getMontant());%></h2></tr>
                     <!--<td><img src="../vues/image/cheval.jpg"/></tr>-->
                     <td><img src="<%out.println(uneEnchere.getMontant());%>"></tr>

@@ -12,24 +12,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link href="menu.html">
-       
         <title>Liste des ventes</title>
     </head>
     <body>
-    
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-            <center><h1>Liste des ventes</h1>
-                <h4><a href="../ServletVentes/venteAjouter">Ajouter une vente</a></h4></center>
-            <img src="../vues/image/vente.png" class="img-fluid" alt="Responsive image">
-
+                <br><center><h1>Ventes</h1>
+                    <a href="../ServletVentes/venteAjouter"><button class="btn btn-dark" type="button">Ajouter une vente</button></a>
          <%
         ArrayList<Vente> lesVentes = (ArrayList)request.getAttribute("pLesVentes");
         %>
-        <table  class="table table-bordered table-striped table-condensed" border="5">  
+        <table class="table">
             <thead>             
                          
-                <tr>             
+                <tr align="center">             
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Début</th>
@@ -52,7 +48,7 @@
                     {
                         
                         Vente uneVente = lesVentes.get(i);
-                        out.println("<tr><td>");
+                        out.println("<tr align='center'><td>");
                         out.println(uneVente.getId());
                         out.println("</a></td>");
 
@@ -78,19 +74,19 @@
                         
                         
                         out.println("<td><a href ='../ServletVentes/listerLesClients?codeCat="+ uneVente.getUneCategVente().getCode()+ "'>");
-                        out.println("Lister les clients interessés");
+                        out.println("<button type='button' class='btn btn-secondary'>Clients</button>");
                         out.println("</td>");
                         
                         out.println("<td><a href ='../ServletVentes/listerLesCourriels?idVente="+ uneVente.getId()+ "'>");
-                        out.println("Lister les Courriels interessés");
+                        out.println("<button type='button' class='btn btn-secondary'>Courriels</button>");
                         out.println("</td>");
                         
                         out.println("<td><a href ='../ServletVentes/listerLesChevaux?idVente="+ uneVente.getId()+ "'>");
-                        out.println("Lister les Chevaux en vente");
+                        out.println("<button type='button' class='btn btn-secondary'>Chevaux</button>");
                         out.println("</td>");
                         
                         out.println("<td><a href ='../ServletVentes/listerLesEncheres?idVente="+ uneVente.getId()+ "'>");
-                        out.println("Informations sur les Enchères ");
+                        out.println("<button type='button' class='btn btn-secondary'>Plus</button>");
                         out.println("</td>");
                         
                                

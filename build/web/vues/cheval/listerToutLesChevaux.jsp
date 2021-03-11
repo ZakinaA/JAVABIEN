@@ -20,33 +20,31 @@
         
             <%@ include file="../menu/menu.html"%>
             <div class="container">
-                <center><h1>Liste des chevaux</h1>
-                <h4><a href="../ServletCheval/chevalAjouter">Ajouter un cheval</a></h4>
-                <img src="../vues/image/cheval.png" class="img-fluid" alt="Responsive image" width="20%" height="20%" ></center>
+                <br><center><h1>Liste des chevaux</h1>
+                    <a href="../ServletCheval/chevalAjouter"><button class="btn btn-dark" type="button">Ajouter un cheval</button></a>
+               
          <%
         ArrayList<Cheval> lesChevaux = (ArrayList)request.getAttribute("pLesChevaux");
         %>
-        <table  class="table table-bordered table-striped table-condensed"  border="5">  
+        <table  class="table">  
             <thead>
                 <tr>             
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Race</th>
                     <th></th>
-                    
- 
             <br>
             <br>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+               
                     <%
                     for(int i = 0; i < lesChevaux.size();i++)
                     {
                         
                         Cheval unCheval = lesChevaux.get(i);
-                        out.println("<tr align='center'><td>");
+                        out.println("<tr><td>");
                         out.println(unCheval.getId());
                         out.println("</a></td>");
 
@@ -59,7 +57,7 @@
                         out.println("</td>");
                         
                         out.println("<td><a href ='../ServletCheval/listerInfoCheval?idCheval="+ unCheval.getId()+ "'>");
-                        out.println("Plus d'information");
+                        out.println("<button type='button' class='btn btn-secondary'>Plus d'information</button>");
                         out.println("</td>");
                         
       
